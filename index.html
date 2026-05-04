@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Vaso 3D Quebra-Cabeça | Porcelana Azul</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Poppins', sans-serif;
+            min-height: 100vh;
+            padding: 25px;
+            /* FUNDO COM SUA IMAGEM - LIMPO E TOTALMENTE VISÍVEL */
+            background-image: url('https://i.im.ge/QMleDFY/br-11134103-7r98o-maxiyvatnshlb3.webp');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position: relative;
+            /* Animação suave no fundo */
+            animation: subtleZoom 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes subtleZoom {
+            0% {
+                background-size: 100% auto;
+            }
+            100% {
+                background-size: 108% auto;
+            }
+        }
+
+        /* SEM OVERLAY ESCURO - fundo 100% livre */
+        /* Container principal */
+        .container {
+            max-width: 520px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* CARD TRANSPARENTE E LEVE - sem peso de venda */
+        .card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(0px);
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            animation: fadeSlide 0.6s ease-out;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Área principal do produto - sem pressão de venda */
+        .product-main {
+            padding: 30px 25px 20px;
+            text-align: center;
+        }
+
+        .icon-vaso {
+            font-size: 80px;
+            display: inline-block;
+            background: rgba(255,255,240,0.7);
+            padding: 20px;
+            border-radius: 60px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a2a3a;
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        .sub {
+            color: #2c6e9e;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .estrelas {
+            color: #f5a623;
+            font-size: 20px;
+            margin: 12px 0;
+            letter-spacing: 2px;
+        }
+
+        .preco-destaque {
+            background: linear-gradient(135deg, #0f2b1f, #1e4a2f);
+            padding: 20px;
+            border-radius: 30px;
+            margin: 18px 0;
+            color: white;
+        }
+
+        .preco-antigo {
+            font-size: 18px;
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+
+        .preco-pix {
+            font-size: 52px;
+            font-weight: 900;
+            color: #75ff9b;
+            line-height: 1;
+        }
+
+        .preco-pix small {
+            font-size: 26px;
+        }
+
+        .badge-pix {
+            background: #00e676;
+            color: #1a3a2a;
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-weight: 800;
+            margin-top: 10px;
+            animation: pulseBtn 1.6s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 #75ff9b; }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(117, 255, 155, 0.3); }
+            100% { transform: scale(1); }
+        }
+
+        .info-qualidade {
+            background: rgba(245, 245, 235, 0.9);
+            border-radius: 24px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .info-qualidade p {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .btn-shopee {
+            display: block;
+            background: linear-gradient(95deg, #ee5a24, #f79d1c);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 20px;
+            margin: 20px 0 15px;
+            transition: 0.2s;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        }
+
+        .btn-shopee:hover {
+            transform: scale(1.01);
+            background: linear-gradient(95deg, #d94a18, #e68814);
+        }
+
+        .rodape-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 11px;
+            padding: 8px 0 20px;
+            color: #3a3a3a;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 11px;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 550px) {
+            body {
+                padding: 15px;
+            }
+            .preco-pix {
+                font-size: 42px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        
+        <div class="product-main">
+            <div class="icon-vaso">
+                🏺✨
+            </div>
+            <h1>Vaso Quebra-Cabeça 3D<br><span class="sub">Porcelana Azul e Branca</span></h1>
+            <div class="estrelas">
+                ★★★★★ <span style="font-size: 13px; color: #555;">(48 avaliações com foto)</span>
+            </div>
+
+            <!-- Bloco de preço com destaque enorme no Pix -->
+            <div class="preco-destaque">
+                <div class="preco-antigo">De R$149,90</div>
+                <div class="preco-pix"><small>R$</small> 94,75</div>
+                <div class="badge-pix">💚 NO PIX 💚</div>
+                <div style="font-size: 13px; margin-top: 8px;">ou parcelado em até 3x</div>
+            </div>
+
+            <!-- Características de qualidade -->
+            <div class="info-qualidade">
+                <p>✅ <strong>Material premium</strong> - plástico resistente com acabamento brilhante</p>
+                <p>🧩 <strong>Montagem 3D</strong> - peças se encaixam perfeitamente (com manual)</p>
+                <p>🏺 <strong>Design exclusivo</strong> - imita porcelana chinesa, lindo na decoração</p>
+                <p>🎁 <strong>Ideal para presente</strong> ou arranjo de flores</p>
+                <p>🔒 <strong>Garantia Shopee</strong> + produto lacrado e testado</p>
+            </div>
+
+            <!-- BOTÃO ÚNICO - link encurtado Shopee -->
+            <a href="https://s.shopee.com.br/2LUrPUGq7D" class="btn-shopee" target="_blank" rel="noopener">
+                🛒 COMPRAR AGORA NA SHOPEE
+            </a>
+
+            <div class="rodape-info">
+                <span>🔐 Compra segura</span>
+                <span>📦 Envio rápido</span>
+                <span>🔄 Garantia total</span>
+            </div>
+        </div>
+    </div>
+    <footer>
+        🌊 Produto original | Pronta entrega | Qualidade garantida
+    </footer>
+</div>
+
+</body>
+</html>
