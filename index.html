@@ -14,51 +14,43 @@
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Poppins', sans-serif;
             min-height: 100vh;
-            padding: 25px;
-            /* FUNDO COM SUA IMAGEM - LIMPO E TOTALMENTE VISÍVEL */
+            padding: 40px 20px;
+            /* FUNDO COM SUA IMAGEM - TOTALMENTE VISÍVEL */
             background-image: url('https://i.im.ge/QMleDFY/br-11134103-7r98o-maxiyvatnshlb3.webp');
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            position: relative;
-            /* Animação suave no fundo */
-            animation: subtleZoom 20s infinite alternate ease-in-out;
+            animation: subtleZoom 25s infinite alternate ease-in-out;
         }
 
         @keyframes subtleZoom {
-            0% {
-                background-size: 100% auto;
-            }
-            100% {
-                background-size: 108% auto;
-            }
+            0% { background-size: 100% auto; }
+            100% { background-size: 112% auto; }
         }
 
-        /* SEM OVERLAY ESCURO - fundo 100% livre */
-        /* Container principal */
         .container {
-            max-width: 520px;
+            max-width: 400px; /* REDUZIDO - de 540px para 400px */
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
 
-        /* CARD TRANSPARENTE E LEVE - sem peso de venda */
+        /* CARD MENOR E MAIS TRANSPARENTE */
         .card {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(0px);
-            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(3px);
+            border-radius: 32px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            animation: fadeSlide 0.6s ease-out;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+            animation: fadeSlide 0.5s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         @keyframes fadeSlide {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -66,98 +58,161 @@
             }
         }
 
-        /* Área principal do produto - sem pressão de venda */
         .product-main {
-            padding: 30px 25px 20px;
+            padding: 25px 20px 20px;
             text-align: center;
         }
 
-        .icon-vaso {
-            font-size: 80px;
-            display: inline-block;
-            background: rgba(255,255,240,0.7);
-            padding: 20px;
-            border-radius: 60px;
+        /* ANIMAÇÃO DO QUEBRA-CABEÇA - PEÇAS SE ENCAIXANDO */
+        .animacao-montagem {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .peca {
+            font-size: 42px;
+            display: inline-block;
+            animation: flutuar 0.8s ease-in-out infinite alternate;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .peca:nth-child(1) { animation-delay: 0s; }
+        .peca:nth-child(2) { animation-delay: 0.2s; }
+        .peca:nth-child(3) { animation-delay: 0.4s; }
+        .peca:nth-child(4) { animation-delay: 0.6s; }
+        .peca:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes flutuar {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-12px) rotate(8deg);
+                opacity: 1;
+            }
+        }
+
+        .seta-montagem {
+            font-size: 24px;
+            animation: pisca 1s infinite;
+        }
+
+        @keyframes pisca {
+            0%, 100% { opacity: 0.3; transform: translateX(0); }
+            50% { opacity: 1; transform: translateX(5px); }
+        }
+
+        .vaso-montado {
+            font-size: 55px;
+            display: inline-block;
+            background: rgba(255,255,240,0.6);
+            padding: 12px;
+            border-radius: 50px;
+            margin-left: 5px;
+            animation: montado 0.5s ease-out;
+        }
+
+        @keyframes montado {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .legenda-montagem {
+            font-size: 10px;
+            color: #2c6e9e;
+            margin-top: 8px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         h1 {
-            font-size: 26px;
+            font-size: 20px;
             font-weight: 800;
             color: #1a2a3a;
-            margin: 10px 0;
-            line-height: 1.2;
+            margin: 15px 0 5px;
+            line-height: 1.25;
         }
 
         .sub {
             color: #2c6e9e;
             font-weight: 600;
-            letter-spacing: -0.3px;
+            font-size: 13px;
         }
 
         .estrelas {
             color: #f5a623;
-            font-size: 20px;
-            margin: 12px 0;
-            letter-spacing: 2px;
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        .estrelas span {
+            font-size: 11px;
+            color: #666;
         }
 
         .preco-destaque {
-            background: linear-gradient(135deg, #0f2b1f, #1e4a2f);
-            padding: 20px;
-            border-radius: 30px;
-            margin: 18px 0;
+            background: linear-gradient(135deg, #0a2a1f, #1a5035);
+            padding: 12px 15px;
+            border-radius: 28px;
+            margin: 15px 0;
             color: white;
         }
 
         .preco-antigo {
-            font-size: 18px;
+            font-size: 14px;
             text-decoration: line-through;
-            opacity: 0.8;
+            opacity: 0.75;
         }
 
         .preco-pix {
-            font-size: 52px;
+            font-size: 38px;
             font-weight: 900;
-            color: #75ff9b;
+            color: #8affb0;
             line-height: 1;
         }
 
         .preco-pix small {
-            font-size: 26px;
+            font-size: 20px;
         }
 
         .badge-pix {
             background: #00e676;
-            color: #1a3a2a;
+            color: #0a2a1f;
             display: inline-block;
-            padding: 6px 20px;
+            padding: 4px 16px;
             border-radius: 40px;
             font-weight: 800;
-            margin-top: 10px;
-            animation: pulseBtn 1.6s infinite;
+            font-size: 11px;
+            margin-top: 8px;
+            animation: pulseBtn 1.8s infinite;
         }
 
         @keyframes pulseBtn {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 #75ff9b; }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(117, 255, 155, 0.3); }
+            0% { transform: scale(1); box-shadow: 0 0 0 0 #8affb0; }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(138, 255, 176, 0.2); }
             100% { transform: scale(1); }
         }
 
         .info-qualidade {
-            background: rgba(245, 245, 235, 0.9);
-            border-radius: 24px;
-            padding: 15px;
-            margin: 20px 0;
+            background: rgba(248, 248, 240, 0.9);
+            border-radius: 20px;
+            padding: 12px 15px;
+            margin: 15px 0;
             text-align: left;
         }
 
         .info-qualidade p {
-            margin: 8px 0;
+            margin: 6px 0;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 14px;
+            gap: 8px;
+            font-size: 11px;
+            color: #2a3a2a;
         }
 
         .btn-shopee {
@@ -165,47 +220,55 @@
             background: linear-gradient(95deg, #ee5a24, #f79d1c);
             color: white;
             text-align: center;
-            padding: 18px;
-            border-radius: 60px;
+            padding: 14px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
-            font-size: 20px;
-            margin: 20px 0 15px;
-            transition: 0.2s;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+            font-size: 18px;
+            margin: 15px 0 12px;
+            transition: all 0.2s;
+            box-shadow: 0 6px 15px rgba(238, 90, 36, 0.3);
         }
 
         .btn-shopee:hover {
-            transform: scale(1.01);
-            background: linear-gradient(95deg, #d94a18, #e68814);
+            transform: scale(1.02);
         }
 
         .rodape-info {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            font-size: 11px;
-            padding: 8px 0 20px;
-            color: #3a3a3a;
+            gap: 16px;
+            font-size: 9px;
+            padding: 5px 0 15px;
+            color: #4a4a4a;
         }
 
         footer {
             text-align: center;
-            margin-top: 18px;
-            font-size: 11px;
-            color: #fff;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+            margin-top: 15px;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
         }
 
         @media (max-width: 550px) {
             body {
-                padding: 15px;
+                padding: 30px 15px;
+            }
+            .container {
+                max-width: 360px;
             }
             .preco-pix {
-                font-size: 42px;
+                font-size: 34px;
             }
             h1 {
-                font-size: 22px;
+                font-size: 18px;
+            }
+            .peca {
+                font-size: 32px;
+            }
+            .vaso-montado {
+                font-size: 42px;
             }
         }
     </style>
@@ -216,45 +279,51 @@
     <div class="card">
         
         <div class="product-main">
-            <div class="icon-vaso">
-                🏺✨
+            
+            <!-- ANIMAÇÃO DO QUEBRA-CABEÇA MONTANDO -->
+            <div class="animacao-montagem">
+                <div class="peca">🧩</div>
+                <div class="peca">🔷</div>
+                <div class="peca">🧩</div>
+                <div class="seta-montagem">➡️</div>
+                <div class="vaso-montado">🏺</div>
             </div>
-            <h1>Vaso Quebra-Cabeça 3D<br><span class="sub">Porcelana Azul e Branca</span></h1>
+            <div class="legenda-montagem">🔧 PEÇAS SE ENCAIXANDO | MONTE VOCÊ MESMO 🧩</div>
+
+            <h1>Vaso 3D Quebra-Cabeça<br><span class="sub">Porcelana Azul e Branca</span></h1>
+            
             <div class="estrelas">
-                ★★★★★ <span style="font-size: 13px; color: #555;">(48 avaliações com foto)</span>
+                ★★★★★ <span>48 avaliações com foto</span>
             </div>
 
-            <!-- Bloco de preço com destaque enorme no Pix -->
             <div class="preco-destaque">
-                <div class="preco-antigo">De R$149,90</div>
-                <div class="preco-pix"><small>R$</small> 94,75</div>
-                <div class="badge-pix">💚 NO PIX 💚</div>
-                <div style="font-size: 13px; margin-top: 8px;">ou parcelado em até 3x</div>
+                <div class="preco-antigo">R$149,90</div>
+                <div class="preco-pix"><small>R$</small> 94<span style="font-size:24px;">,75</span></div>
+                <div class="badge-pix">💚 NO PIX - 37% OFF 💚</div>
             </div>
 
-            <!-- Características de qualidade -->
             <div class="info-qualidade">
-                <p>✅ <strong>Material premium</strong> - plástico resistente com acabamento brilhante</p>
-                <p>🧩 <strong>Montagem 3D</strong> - peças se encaixam perfeitamente (com manual)</p>
-                <p>🏺 <strong>Design exclusivo</strong> - imita porcelana chinesa, lindo na decoração</p>
-                <p>🎁 <strong>Ideal para presente</strong> ou arranjo de flores</p>
-                <p>🔒 <strong>Garantia Shopee</strong> + produto lacrado e testado</p>
+                <p>🏆 <strong>Material premium</strong> — plástico resistente, acabamento brilhante</p>
+                <p>🧩 <strong>Montagem 3D perfeita</strong> — peças se encaixam com precisão</p>
+                <p>🏺 <strong>Design exclusivo</strong> — imita porcelana chinesa</p>
+                <p>🎁 <strong>Versátil</strong> — decoração, flores ou presente</p>
+                <p>🔒 <strong>Garantia Shopee</strong> — produto lacrado e testado</p>
             </div>
 
-            <!-- BOTÃO ÚNICO - link encurtado Shopee -->
             <a href="https://s.shopee.com.br/2LUrPUGq7D" class="btn-shopee" target="_blank" rel="noopener">
-                🛒 COMPRAR AGORA NA SHOPEE
+                🛒 COMPRAR NA SHOPEE
             </a>
 
             <div class="rodape-info">
-                <span>🔐 Compra segura</span>
-                <span>📦 Envio rápido</span>
-                <span>🔄 Garantia total</span>
+                <span>🔐 Seguro</span>
+                <span>📦 Rápido</span>
+                <span>🔄 Garantia</span>
+                <span>🏆 +2000 vendas</span>
             </div>
         </div>
     </div>
     <footer>
-        🌊 Produto original | Pronta entrega | Qualidade garantida
+        🌊 Produto original | Monte seu vaso peça por peça
     </footer>
 </div>
 
