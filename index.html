@@ -7,7 +7,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-NBC9FVLLNB');
     </script>
 
@@ -15,81 +14,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Vaso 3D Quebra-Cabeça | Porcelana Azul</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Poppins', sans-serif;
-            min-height: 100vh;
-            padding: 40px 20px;
-            /* FUNDO COM SUA IMAGEM - TOTALMENTE VISÍVEL */
+            min-height: 100vh; padding: 40px 20px;
             background-image: url('https://i.im.ge/QMleDFY/br-11134103-7r98o-maxiyvatnshlb3.webp');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            background-size: cover; background-position: center center;
+            background-attachment: fixed; background-repeat: no-repeat;
             animation: subtleZoom 25s infinite alternate ease-in-out;
         }
-
         @keyframes subtleZoom {
             0% { background-size: 100% auto; }
             100% { background-size: 112% auto; }
         }
 
-        .container {
-            max-width: 400px; /* REDUZIDO - de 540px para 400px */
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
+        .container { max-width: 400px; margin: 0 auto; position: relative; z-index: 2; }
 
-        /* CARD MENOR E MAIS TRANSPARENTE */
         .card {
-            background: rgba(255, 255, 255, 0.78);
-            backdrop-filter: blur(3px);
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+            background: rgba(255,255,255,0.78); backdrop-filter: blur(3px);
+            border-radius: 32px; overflow: hidden;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
             animation: fadeSlide 0.5s ease-out;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255,255,255,0.4);
         }
-
         @keyframes fadeSlide {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .product-main {
-            padding: 25px 20px 20px;
-            text-align: center;
-        }
+        .product-main { padding: 25px 20px 20px; text-align: center; }
 
-        /* ANIMAÇÃO DO QUEBRA-CABEÇA - PEÇAS SE ENCAIXANDO */
         .animacao-montagem {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
+            display: flex; justify-content: center; align-items: center;
+            gap: 8px; margin-bottom: 15px; flex-wrap: wrap;
         }
-
         .peca {
-            font-size: 42px;
-            display: inline-block;
+            font-size: 42px; display: inline-block;
             animation: flutuar 0.8s ease-in-out infinite alternate;
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
-
         .peca:nth-child(1) { animation-delay: 0s; }
         .peca:nth-child(2) { animation-delay: 0.2s; }
         .peca:nth-child(3) { animation-delay: 0.4s; }
@@ -97,189 +61,97 @@
         .peca:nth-child(5) { animation-delay: 0.8s; }
 
         @keyframes flutuar {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(-12px) rotate(8deg);
-                opacity: 1;
-            }
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            100% { transform: translateY(-12px) rotate(8deg); opacity: 1; }
         }
-
-        .seta-montagem {
-            font-size: 24px;
-            animation: pisca 1s infinite;
-        }
-
+        .seta-montagem { font-size: 24px; animation: pisca 1s infinite; }
         @keyframes pisca {
-            0%, 100% { opacity: 0.3; transform: translateX(0); }
-            50% { opacity: 1; transform: translateX(5px); }
+            0%,100% { opacity:0.3; transform:translateX(0); }
+            50% { opacity:1; transform:translateX(5px); }
         }
-
         .vaso-montado {
-            font-size: 55px;
-            display: inline-block;
-            background: rgba(255,255,240,0.6);
-            padding: 12px;
-            border-radius: 50px;
-            margin-left: 5px;
+            font-size: 55px; display: inline-block;
+            background: rgba(255,255,240,0.6); padding: 12px;
+            border-radius: 50px; margin-left: 5px;
             animation: montado 0.5s ease-out;
         }
-
         @keyframes montado {
             from { transform: scale(0.5); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
-
         .legenda-montagem {
-            font-size: 10px;
-            color: #2c6e9e;
-            margin-top: 8px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-size: 10px; color: #2c6e9e; margin-top: 8px;
+            font-weight: 600; letter-spacing: 1px;
         }
 
-        h1 {
-            font-size: 20px;
-            font-weight: 800;
-            color: #1a2a3a;
-            margin: 15px 0 5px;
-            line-height: 1.25;
+        /* Container do vídeo */
+        .video-container {
+            margin: 15px 0; border-radius: 16px;
+            overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .video-container video {
+            width: 100%; height: auto; display: block;
         }
 
-        .sub {
-            color: #2c6e9e;
-            font-weight: 600;
-            font-size: 13px;
-        }
+        h1 { font-size: 20px; font-weight: 800; color: #1a2a3a; margin: 15px 0 5px; line-height: 1.25; }
+        .sub { color: #2c6e9e; font-weight: 600; font-size: 13px; }
 
-        .estrelas {
-            color: #f5a623;
-            font-size: 16px;
-            margin: 8px 0;
-        }
-
-        .estrelas span {
-            font-size: 11px;
-            color: #666;
-        }
+        .estrelas { color: #f5a623; font-size: 16px; margin: 8px 0; }
+        .estrelas span { font-size: 11px; color: #666; }
 
         .preco-destaque {
             background: linear-gradient(135deg, #0a2a1f, #1a5035);
-            padding: 12px 15px;
-            border-radius: 28px;
-            margin: 15px 0;
-            color: white;
+            padding: 12px 15px; border-radius: 28px; margin: 15px 0; color: white;
         }
-
-        .preco-antigo {
-            font-size: 14px;
-            text-decoration: line-through;
-            opacity: 0.75;
-        }
-
-        .preco-pix {
-            font-size: 38px;
-            font-weight: 900;
-            color: #8affb0;
-            line-height: 1;
-        }
-
-        .preco-pix small {
-            font-size: 20px;
-        }
-
+        .preco-antigo { font-size: 14px; text-decoration: line-through; opacity: 0.75; }
+        .preco-pix { font-size: 38px; font-weight: 900; color: #8affb0; line-height: 1; }
+        .preco-pix small { font-size: 20px; }
         .badge-pix {
-            background: #00e676;
-            color: #0a2a1f;
-            display: inline-block;
-            padding: 4px 16px;
-            border-radius: 40px;
-            font-weight: 800;
-            font-size: 11px;
-            margin-top: 8px;
-            animation: pulseBtn 1.8s infinite;
+            background: #00e676; color: #0a2a1f; display: inline-block;
+            padding: 4px 16px; border-radius: 40px; font-weight: 800;
+            font-size: 11px; margin-top: 8px; animation: pulseBtn 1.8s infinite;
         }
-
         @keyframes pulseBtn {
             0% { transform: scale(1); box-shadow: 0 0 0 0 #8affb0; }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(138, 255, 176, 0.2); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(138,255,176,0.2); }
             100% { transform: scale(1); }
         }
 
         .info-qualidade {
-            background: rgba(248, 248, 240, 0.9);
-            border-radius: 20px;
-            padding: 12px 15px;
-            margin: 15px 0;
-            text-align: left;
+            background: rgba(248,248,240,0.9); border-radius: 20px;
+            padding: 12px 15px; margin: 15px 0; text-align: left;
         }
-
         .info-qualidade p {
-            margin: 6px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            color: #2a3a2a;
+            margin: 6px 0; display: flex; align-items: center;
+            gap: 8px; font-size: 11px; color: #2a3a2a;
         }
 
         .btn-shopee {
-            display: block;
-            background: linear-gradient(95deg, #ee5a24, #f79d1c);
-            color: white;
-            text-align: center;
-            padding: 14px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 18px;
-            margin: 15px 0 12px;
-            transition: all 0.2s;
-            box-shadow: 0 6px 15px rgba(238, 90, 36, 0.3);
+            display: block; background: linear-gradient(95deg, #ee5a24, #f79d1c);
+            color: white; text-align: center; padding: 14px; border-radius: 50px;
+            text-decoration: none; font-weight: 800; font-size: 18px;
+            margin: 15px 0 12px; transition: all 0.2s;
+            box-shadow: 0 6px 15px rgba(238,90,36,0.3);
         }
-
-        .btn-shopee:hover {
-            transform: scale(1.02);
-        }
+        .btn-shopee:hover { transform: scale(1.02); }
 
         .rodape-info {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            font-size: 9px;
-            padding: 5px 0 15px;
-            color: #4a4a4a;
+            display: flex; justify-content: center; gap: 16px;
+            font-size: 9px; padding: 5px 0 15px; color: #4a4a4a;
         }
 
         footer {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            text-align: center; margin-top: 15px; font-size: 10px;
+            color: rgba(255,255,255,0.9); text-shadow: 0 1px 2px rgba(0,0,0,0.4);
         }
 
         @media (max-width: 550px) {
-            body {
-                padding: 30px 15px;
-            }
-            .container {
-                max-width: 360px;
-            }
-            .preco-pix {
-                font-size: 34px;
-            }
-            h1 {
-                font-size: 18px;
-            }
-            .peca {
-                font-size: 32px;
-            }
-            .vaso-montado {
-                font-size: 42px;
-            }
+            body { padding: 30px 15px; }
+            .container { max-width: 360px; }
+            .preco-pix { font-size: 34px; }
+            h1 { font-size: 18px; }
+            .peca { font-size: 32px; }
+            .vaso-montado { font-size: 42px; }
         }
     </style>
 </head>
@@ -287,10 +159,7 @@
 
 <div class="container">
     <div class="card">
-        
         <div class="product-main">
-            
-            <!-- ANIMAÇÃO DO QUEBRA-CABEÇA MONTANDO -->
             <div class="animacao-montagem">
                 <div class="peca">🧩</div>
                 <div class="peca">🔷</div>
@@ -300,11 +169,16 @@
             </div>
             <div class="legenda-montagem">🔧 PEÇAS SE ENCAIXANDO | MONTE VOCÊ MESMO 🧩</div>
 
-            <h1>Vaso 3D Quebra-Cabeça<br><span class="sub">Porcelana Azul e Branca</span></h1>
-            
-            <div class="estrelas">
-                ★★★★★ <span>48 avaliações com foto</span>
+            <!-- 🎬 VÍDEO LOCAL -->
+            <div class="video-container">
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Seu navegador não suporta o vídeo.
+                </video>
             </div>
+
+            <h1>Vaso 3D Quebra-Cabeça<br><span class="sub">Porcelana Azul e Branca</span></h1>
+            <div class="estrelas">★★★★★ <span>48 avaliações com foto</span></div>
 
             <div class="preco-destaque">
                 <div class="preco-antigo">R$149,90</div>
@@ -325,16 +199,11 @@
             </a>
 
             <div class="rodape-info">
-                <span>🔐 Seguro</span>
-                <span>📦 Rápido</span>
-                <span>🔄 Garantia</span>
-                <span>🏆 +2000 vendas</span>
+                <span>🔐 Seguro</span><span>📦 Rápido</span><span>🔄 Garantia</span><span>🏆 +2000 vendas</span>
             </div>
         </div>
     </div>
-    <footer>
-        🌊 Produto original | Monte seu vaso peça por peça
-    </footer>
+    <footer>🌊 Produto original | Monte seu vaso peça por peça</footer>
 </div>
 
 </body>
