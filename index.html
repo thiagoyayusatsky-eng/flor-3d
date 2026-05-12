@@ -1,209 +1,538 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBC9FVLLNB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-NBC9FVLLNB');
+        gtag('config', 'AW-XXXXXXXXX'); // ← seu ID Google Ads
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Vaso 3D Quebra-Cabeça | Porcelana Azul</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaso 3D Quebra-Cabeça · Porcelana Azul e Branca | Decoração Premium</title>
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;600;700;900&display=swap');
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Poppins', sans-serif;
-            min-height: 100vh; padding: 40px 20px;
-            background-image: url('https://i.im.ge/QMleDFY/br-11134103-7r98o-maxiyvatnshlb3.webp');
-            background-size: cover; background-position: center center;
-            background-attachment: fixed; background-repeat: no-repeat;
-            animation: subtleZoom 25s infinite alternate ease-in-out;
-        }
-        @keyframes subtleZoom {
-            0% { background-size: 100% auto; }
-            100% { background-size: 112% auto; }
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: #2b1a12;
+            background-image:
+                radial-gradient(ellipse at 50% 20%, rgba(210, 160, 100, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(180, 120, 60, 0.2) 0%, transparent 50%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,240,0.03)" stroke-width="0.5"><path d="M20,20 Q50,5 80,20 T20,80 T20,20" /></svg>');
+            background-size: cover, cover, 120px 120px;
+            background-attachment: fixed;
+            color: #fff;
+            overflow-x: hidden;
+            backdrop-filter: blur(2px);
         }
 
-        .container { max-width: 400px; margin: 0 auto; position: relative; z-index: 2; }
+        /* Camada sutil de vinheta */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
 
+        .page-wrap {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem 3rem;
+            min-height: 100vh;
+        }
+
+        /* Topo refinado */
+        .hero-top {
+            text-align: center;
+            max-width: 480px;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.8s ease;
+        }
+        .badge-novo {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #e6c468;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 0.4rem 1.8rem;
+            border-radius: 50px;
+            margin-bottom: 1.2rem;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .hero-top h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 8vw, 3.2rem);
+            font-weight: 700;
+            color: #faf6f0;
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            letter-spacing: -0.5px;
+        }
+        .hero-top h1 span {
+            background: linear-gradient(135deg, #7ec8e3, #3a7ca5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-style: italic;
+        }
+        .hero-top .sub {
+            color: rgba(255, 248, 235, 0.75);
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+        .estrelas {
+            color: #e0b354;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .estrelas span {
+            font-size: 0.7rem;
+            color: rgba(255, 248, 235, 0.6);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0;
+        }
+
+        /* CARD PRINCIPAL */
         .card {
-            background: rgba(255,255,255,0.78); backdrop-filter: blur(3px);
-            border-radius: 32px; overflow: hidden;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.15);
-            animation: fadeSlide 0.5s ease-out;
-            border: 1px solid rgba(255,255,255,0.4);
+            background: rgba(20, 12, 8, 0.5);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(210, 180, 140, 0.2);
+            border-radius: 2.5rem;
+            max-width: 440px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.7), inset 0 1px 30px rgba(230, 200, 150, 0.08);
+            animation: fadeUp 0.6s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 40px 65px rgba(0,0,0,0.8);
+        }
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(30px); }
+            to { opacity:1; transform:translateY(0); }
         }
 
-        .product-main { padding: 25px 20px 20px; text-align: center; }
-
-        .animacao-montagem {
-            display: flex; justify-content: center; align-items: center;
-            gap: 8px; margin-bottom: 15px; flex-wrap: wrap;
+        /* Carrossel elegante */
+        .carousel-container {
+            position: relative;
+            margin: 1.5rem 1.5rem 0.5rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+            background: #110a06;
+            aspect-ratio: 1 / 1;
         }
-        .peca {
-            font-size: 42px; display: inline-block;
-            animation: flutuar 0.8s ease-in-out infinite alternate;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        .carousel-slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.25,0.1,0.25,1);
         }
-        .peca:nth-child(1) { animation-delay: 0s; }
-        .peca:nth-child(2) { animation-delay: 0.2s; }
-        .peca:nth-child(3) { animation-delay: 0.4s; }
-        .peca:nth-child(4) { animation-delay: 0.6s; }
-        .peca:nth-child(5) { animation-delay: 0.8s; }
+        .carousel-slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border-radius: 0; /* herdado do container */
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(20, 12, 8, 0.7);
+            backdrop-filter: blur(10px);
+            color: #f0e0c0;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .carousel-btn:hover {
+            background: rgba(212, 175, 55, 0.25);
+            border-color: #d4af37;
+            color: #fff;
+        }
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
 
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        .carousel-indicators span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 248, 235, 0.4);
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .carousel-indicators span.active {
+            background: #d4af37;
+            box-shadow: 0 0 12px #d4af37;
+            transform: scale(1.4);
+        }
+
+        /* Animação montagem (mini) */
+        .montagem-mini {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 1.2rem 1rem 0.4rem;
+            font-size: 2rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+        }
+        .peca-anim {
+            animation: flutuar 1.2s ease-in-out infinite alternate;
+            display: inline-block;
+        }
+        .peca-anim:nth-child(1) { animation-delay: 0s; }
+        .peca-anim:nth-child(2) { animation-delay: 0.2s; }
+        .peca-anim:nth-child(3) { animation-delay: 0.4s; }
         @keyframes flutuar {
-            0% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-            100% { transform: translateY(-12px) rotate(8deg); opacity: 1; }
+            0% { transform: translateY(0) rotate(0deg); opacity:0.8; }
+            100% { transform: translateY(-8px) rotate(6deg); opacity:1; }
         }
-        .seta-montagem { font-size: 24px; animation: pisca 1s infinite; }
-        @keyframes pisca {
-            0%,100% { opacity:0.3; transform:translateX(0); }
-            50% { opacity:1; transform:translateX(5px); }
+        .seta-montagem {
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin: 0 2px;
         }
-        .vaso-montado {
-            font-size: 55px; display: inline-block;
-            background: rgba(255,255,240,0.6); padding: 12px;
-            border-radius: 50px; margin-left: 5px;
-            animation: montado 0.5s ease-out;
-        }
-        @keyframes montado {
-            from { transform: scale(0.5); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+        .vaso-final {
+            font-size: 2.8rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            padding: 6px;
+            backdrop-filter: blur(8px);
         }
         .legenda-montagem {
-            font-size: 10px; color: #2c6e9e; margin-top: 8px;
-            font-weight: 600; letter-spacing: 1px;
+            text-align: center;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #b49450;
+            margin-bottom: 0.8rem;
         }
 
-        .video-container {
-            margin: 15px 0; border-radius: 16px;
-            overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        /* Passos discretos */
+        .passos {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin: 0.8rem 1.5rem 1.2rem;
+            color: rgba(255, 248, 235, 0.8);
+            font-size: 0.7rem;
         }
-        .video-container video {
-            width: 100%; height: auto; display: block;
+        .passo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .passo span:first-child {
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
         }
 
-        h1 { font-size: 20px; font-weight: 800; color: #1a2a3a; margin: 15px 0 5px; line-height: 1.25; }
-        .sub { color: #2c6e9e; font-weight: 600; font-size: 13px; }
-
-        .estrelas { color: #f5a623; font-size: 16px; margin: 8px 0; }
-        .estrelas span { font-size: 11px; color: #666; }
-
-        .preco-destaque {
-            background: linear-gradient(135deg, #0a2a1f, #1a5035);
-            padding: 12px 15px; border-radius: 28px; margin: 15px 0; color: white;
+        /* Preço destaque */
+        .preco-box {
+            background: linear-gradient(135deg, #1f140c, #2e1f15);
+            margin: 0 1.5rem 1.2rem;
+            border-radius: 1.8rem;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.4);
         }
-        .preco-antigo { font-size: 14px; text-decoration: line-through; opacity: 0.75; }
-        .preco-pix { font-size: 38px; font-weight: 900; color: #8affb0; line-height: 1; }
-        .preco-pix small { font-size: 20px; }
+        .preco-antigo {
+            font-size: 0.8rem;
+            text-decoration: line-through;
+            color: rgba(255,255,255,0.4);
+        }
+        .preco-principal {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #f3e2c7;
+            line-height: 1;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .preco-principal small {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
         .badge-pix {
-            background: #00e676; color: #0a2a1f; display: inline-block;
-            padding: 4px 16px; border-radius: 40px; font-weight: 800;
-            font-size: 11px; margin-top: 8px; animation: pulseBtn 1.8s infinite;
-        }
-        @keyframes pulseBtn {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 #8affb0; }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(138,255,176,0.2); }
-            100% { transform: scale(1); }
-        }
-
-        .info-qualidade {
-            background: rgba(248,248,240,0.9); border-radius: 20px;
-            padding: 12px 15px; margin: 15px 0; text-align: left;
-        }
-        .info-qualidade p {
-            margin: 6px 0; display: flex; align-items: center;
-            gap: 8px; font-size: 11px; color: #2a3a2a;
+            display: inline-block;
+            background: #c99b2c;
+            color: #1a1008;
+            padding: 0.3rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            margin-top: 0.6rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(201, 155, 44, 0.5);
         }
 
-        .btn-shopee {
-            display: block; background: linear-gradient(95deg, #ee5a24, #f79d1c);
-            color: white; text-align: center; padding: 14px; border-radius: 50px;
-            text-decoration: none; font-weight: 800; font-size: 18px;
-            margin: 15px 0 12px; transition: all 0.2s;
-            box-shadow: 0 6px 15px rgba(238,90,36,0.3);
+        /* Vídeo */
+        .video-container {
+            margin: 0 1.5rem 1.2rem;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            background: #000;
         }
-        .btn-shopee:hover { transform: scale(1.02); }
+        .video-container video { width:100%; display:block; }
 
-        .rodape-info {
-            display: flex; justify-content: center; gap: 16px;
-            font-size: 9px; padding: 5px 0 15px; color: #4a4a4a;
+        /* Vantagens */
+        .vantagens {
+            background: rgba(255, 248, 235, 0.03);
+            border-radius: 1.5rem;
+            margin: 0 1.5rem 1.2rem;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(8px);
+        }
+        .vantagens p {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.75rem;
+            margin: 0.6rem 0;
+            color: rgba(255, 248, 235, 0.85);
+        }
+        .vantagens strong { color: #e0c278; font-weight: 600; }
+
+        /* Depoimento */
+        .depoimento {
+            margin: 0 1.5rem 1.2rem;
+            background: rgba(230, 200, 150, 0.04);
+            border-radius: 1.2rem;
+            padding: 0.9rem 1.2rem;
+            border-left: 3px solid #d4af37;
+            font-size: 0.8rem;
+            color: #ddd;
+            backdrop-filter: blur(5px);
+        }
+        .depoimento .cliente { font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+
+        /* Botão Shopee */
+        .btn-comprar {
+            display: block;
+            background: linear-gradient(110deg, #b8862c, #e0b354);
+            color: #1a1008;
+            text-align: center;
+            padding: 1rem 1.5rem;
+            border-radius: 4rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            margin: 0 1.5rem 1rem;
+            box-shadow: 0 8px 25px rgba(184, 134, 44, 0.5);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-comprar:hover {
+            background: linear-gradient(110deg, #c99b2c, #f0c040);
+            transform: scale(1.02);
+            box-shadow: 0 14px 30px rgba(201, 155, 44, 0.7);
+        }
+
+        .rodape-card {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            font-size: 0.6rem;
+            color: rgba(255,255,240,0.5);
+            padding: 0.5rem 1rem 1.5rem;
         }
 
         footer {
-            text-align: center; margin-top: 15px; font-size: 10px;
-            color: rgba(255,255,255,0.9); text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            margin-top: 1.5rem;
+            font-size: 0.65rem;
+            color: rgba(255,255,240,0.35);
         }
 
-        @media (max-width: 550px) {
-            body { padding: 30px 15px; }
-            .container { max-width: 360px; }
-            .preco-pix { font-size: 34px; }
-            h1 { font-size: 18px; }
-            .peca { font-size: 32px; }
-            .vaso-montado { font-size: 42px; }
+        @media (max-width: 480px) {
+            .card { border-radius: 2rem; }
+            .preco-principal { font-size: 2.4rem; }
         }
     </style>
 </head>
 <body>
+<div class="page-wrap">
 
-<div class="container">
+    <div class="hero-top">
+        <div class="badge-novo">Coleção Exclusiva</div>
+        <h1>Vaso <span>3D</span> Quebra‑Cabeça<br>Porcelana Azul e Branca</h1>
+        <p class="sub">Arte milenar chinesa, agora em suas mãos</p>
+        <div class="estrelas">★★★★★ <span>4.9 (86 avaliações)</span></div>
+    </div>
+
     <div class="card">
-        <div class="product-main">
-            <div class="animacao-montagem">
-                <div class="peca">🧩</div>
-                <div class="peca">🔷</div>
-                <div class="peca">🧩</div>
-                <div class="seta-montagem">➡️</div>
-                <div class="vaso-montado">🏺</div>
+        <!-- Carrossel -->
+        <div class="carousel-container" id="carousel">
+            <div class="carousel-slides" id="carouselSlides">
+                <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso montado em destaque">
+                <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe da montagem">
+                <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças do vaso">
+                <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Vaso decorado">
             </div>
-            <div class="legenda-montagem">🔧 PEÇAS SE ENCAIXANDO | MONTE VOCÊ MESMO 🧩</div>
-
-            <!-- 🎬 VÍDEO LOCAL -->
-            <div class="video-container">
-                <video controls>
-                    <source src="flor3d.mp4" type="video/mp4">
-                    Seu navegador não suporta o vídeo.
-                </video>
-            </div>
-
-            <h1>Vaso 3D Quebra-Cabeça<br><span class="sub">Porcelana Azul e Branca</span></h1>
-            <div class="estrelas">★★★★★ <span>48 avaliações com foto</span></div>
-
-            <div class="preco-destaque">
-                <div class="preco-antigo">R$169,90</div>
-                <div class="preco-pix"><small>R$</small> 99<span style="font-size:24px;">,99</span></div>
-                <div class="badge-pix">💚 NO PIX - 41% OFF 💚</div>
-            </div>
-
-            <div class="info-qualidade">
-                <p>🏆 <strong>Material premium</strong> — plástico resistente, acabamento brilhante</p>
-                <p>🧩 <strong>Montagem 3D perfeita</strong> — peças se encaixam com precisão</p>
-                <p>🏺 <strong>Design exclusivo</strong> — imita porcelana chinesa</p>
-                <p>🎁 <strong>Versátil</strong> — decoração, flores ou presente</p>
-                <p>🔒 <strong>Garantia Shopee</strong> — produto lacrado e testado</p>
-            </div>
-
-            <a href="https://s.shopee.com.br/2LUrPUGq7D" class="btn-shopee" target="_blank" rel="noopener">
-                🛒 COMPRAR NA SHOPEE
-            </a>
-
-            <div class="rodape-info">
-                <span>🔐 Seguro</span><span>📦 Rápido</span><span>🔄 Garantia</span><span>🏆 +2000 vendas</span>
+            <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+            <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+            <div class="carousel-indicators" id="indicators">
+                <span class="active" data-index="0"></span>
+                <span data-index="1"></span>
+                <span data-index="2"></span>
+                <span data-index="3"></span>
             </div>
         </div>
+
+        <div class="montagem-mini">
+            <span class="peca-anim">🧩</span>
+            <span class="peca-anim">🔷</span>
+            <span class="peca-anim">🧩</span>
+            <span class="seta-montagem">→</span>
+            <span class="vaso-final">🏺✨</span>
+        </div>
+        <div class="legenda-montagem">MONTAGEM PRECISA · ENCAIXE PERFEITO</div>
+
+        <div class="passos">
+            <div class="passo"><span>①</span> Separe</div>
+            <div class="passo"><span>②</span> Encaixe</div>
+            <div class="passo"><span>③</span> Decore</div>
+        </div>
+
+        <div class="preco-box">
+            <div class="preco-antigo">De R$ 169,90</div>
+            <div class="preco-principal"><small>R$</small> 99,99</div>
+            <div class="badge-pix">💎 PIX · 41% OFF</div>
+        </div>
+
+        <div class="video-container">
+            <video controls playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%231a0f08' width='400' height='300'/%3E%3Ctext fill='%23d4af37' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20'%3E🎬 Assista à montagem%3C/text%3E%3C/svg%3E">
+                <source src="flor3d.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="vantagens">
+            <p>🏺 <strong>Acabamento premium</strong> — brilho e textura de porcelana real</p>
+            <p>🧩 <strong>Encaixes precisos</strong> — sem necessidade de cola</p>
+            <p>🎨 <strong>Design exclusivo</strong> — inspirado na dinastia Ming</p>
+            <p>📦 <strong>Embalagem presenteável</strong> — ideal para ocasiões especiais</p>
+            <p>🔒 <strong>Garantia Shopee</strong> — devolução gratuita</p>
+        </div>
+
+        <div class="depoimento">
+            <div class="cliente">⭐ Maria Fernanda</div>
+            “Simplesmente deslumbrante! Montei em 20 minutos, as visitas acham que é porcelana de verdade.”
+        </div>
+
+        <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-comprar"
+           onclick="gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
+            🛒 COMPRAR NA SHOPEE
+        </a>
+
+        <div class="rodape-card">
+            <span>🔐 Compra segura</span>
+            <span>🚚 Frete grátis</span>
+            <span>🔄 7 dias garantia</span>
+            <span>🏆 +2.000 vendas</span>
+        </div>
     </div>
-    <footer>🌊 Produto original | Monte seu vaso peça por peça</footer>
+
+    <footer>© 2025 | Monte sua obra‑prima</footer>
 </div>
 
+<script>
+    (function() {
+        const slides = document.getElementById('carouselSlides');
+        const indicators = document.querySelectorAll('#indicators span');
+        let current = 0;
+        const total = 4;
+        let interval;
+
+        function goTo(index) {
+            if (index < 0) index = total - 1;
+            if (index >= total) index = 0;
+            current = index;
+            slides.style.transform = `translateX(-${current * 100}%)`;
+            indicators.forEach((dot, i) => dot.classList.toggle('active', i === current));
+        }
+
+        window.changeSlide = (dir) => {
+            clearInterval(interval);
+            goTo(current + dir);
+            startAuto();
+        };
+
+        indicators.forEach(dot => {
+            dot.addEventListener('click', () => {
+                clearInterval(interval);
+                goTo(parseInt(dot.dataset.index));
+                startAuto();
+            });
+        });
+
+        function startAuto() {
+            interval = setInterval(() => goTo(current + 1), 4500);
+        }
+
+        goTo(0);
+        startAuto();
+    })();
+</script>
 </body>
 </html>
