@@ -9,483 +9,466 @@
         gtag('config', 'G-NBC9FVLLNB');
         gtag('config', 'AW-XXXXXXXXX');
     </script>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaso 3D Quebra-Cabeça · Porcelana Azul e Branca | Decoração Premium</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0d1b2a">
+    <title>Vaso 3D Quebra-Cabeça · Porcelana Azul e Branca | flor3d.shop</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         :root {
-            --azul-profundo: #1a3a5c;
-            --azul-cobalt: #2c5f8a;
-            --azul-porcelana: #3a7ca5;
+            --azul-escuro: #0d1b2a;
+            --azul-medio: #1a3a5c;
             --azul-claro: #7ec8e3;
-            --branco-warm: #faf7f0;
-            --branco-creme: #f5f0e8;
             --dourado: #d4af37;
-            --dourado-escuro: #b8942e;
             --dourado-claro: #e8c860;
-            --bg-escuro: #0d1b2a;
-            --bg-card: rgba(13, 27, 42, 0.65);
-            --borda-dourada: rgba(212, 175, 55, 0.35);
-            --texto-suave: rgba(250, 247, 240, 0.8);
-            --whatsapp-green: #25D366;
-            --whatsapp-dark: #128C7E;
+            --branco: #faf7f0;
+            --texto-suave: rgba(250, 247, 240, 0.75);
+            --card-bg: rgba(13, 27, 42, 0.55);
+            --borda: rgba(212, 175, 55, 0.3);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
-            background: var(--bg-escuro);
+            background: var(--azul-escuro);
             background-image:
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'%3E%3Cg fill='none' stroke='%232c5f8a' stroke-width='0.7' opacity='0.25'%3E%3Ccircle cx='140' cy='140' r='120'/%3E%3Ccircle cx='140' cy='140' r='90' stroke-dasharray='8 12'/%3E%3Cpath d='M140 20 Q170 70 140 120 Q110 70 140 20Z'/%3E%3Cpath d='M140 260 Q170 210 140 160 Q110 210 140 260Z'/%3E%3Cpath d='M20 140 Q70 110 120 140 Q70 170 20 140Z'/%3E%3Cpath d='M260 140 Q210 110 160 140 Q210 170 260 140Z'/%3E%3Ccircle cx='140' cy='140' r='14' fill='%232c5f8a' opacity='0.3'/%3E%3C/g%3E%3Cg fill='none' stroke='%237ec8e3' stroke-width='0.5' opacity='0.2'%3E%3Cpath d='M70 70 Q100 40 130 55 Q115 85 85 90Z'/%3E%3Cpath d='M210 210 Q180 240 150 225 Q165 195 195 190Z'/%3E%3Cpath d='M70 210 Q100 240 130 225 Q115 195 85 190Z'/%3E%3Cpath d='M210 70 Q180 40 150 55 Q165 85 195 90Z'/%3E%3C/g%3E%3C/svg%3E"),
-                radial-gradient(ellipse at 50% 0%, rgba(58, 124, 165, 0.2) 0%, transparent 55%),
-                radial-gradient(ellipse at 50% 100%, rgba(26, 58, 92, 0.5) 0%, transparent 55%),
-                linear-gradient(180deg, #0d1b2a 0%, #13293d 30%, #0f1f30 60%, #0a1522 100%);
-            background-size: 280px 280px, 280px 280px, 100% 100%, 100% 100%, 100% 100%;
+                radial-gradient(ellipse at 50% 0%, rgba(58, 124, 165, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(26, 58, 92, 0.4) 0%, transparent 50%),
+                linear-gradient(180deg, #0d1b2a 0%, #13293d 40%, #0f1f30 80%);
             background-attachment: fixed;
-            background-position: 0 0, 140px 140px, 0 0, 0 0, 0 0;
             color: #fff;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 1rem 0.8rem 5rem;
         }
 
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.6) 100%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .particulas-bg {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-        }
-        .particula {
-            position: absolute;
-            opacity: 0;
-            animation: flutuarParticula 14s infinite ease-in-out;
-            font-size: 2rem;
-            filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.3));
-        }
-        .particula:nth-child(1) { left: 5%; top: 15%; animation-delay: 0s; font-size: 3.5rem; }
-        .particula:nth-child(2) { left: 88%; top: 22%; animation-delay: 3s; font-size: 2.8rem; }
-        .particula:nth-child(3) { left: 10%; top: 72%; animation-delay: 6s; font-size: 3rem; }
-        .particula:nth-child(4) { left: 82%; top: 68%; animation-delay: 9s; font-size: 2.5rem; }
-        .particula:nth-child(5) { left: 50%; top: 8%; animation-delay: 2s; font-size: 2.2rem; }
-        .particula:nth-child(6) { left: 45%; top: 85%; animation-delay: 7s; font-size: 3.2rem; }
-
-        @keyframes flutuarParticula {
-            0% { opacity: 0; transform: translateY(40px) rotate(-5deg) scale(0.7); }
-            8% { opacity: 0.6; transform: translateY(0) rotate(3deg) scale(1); }
-            16% { opacity: 0.7; transform: translateY(-20px) rotate(-2deg) scale(1.05); }
-            24% { opacity: 0.3; transform: translateY(-35px) rotate(6deg) scale(0.9); }
-            32% { opacity: 0; transform: translateY(-50px) rotate(-8deg) scale(0.5); }
-            100% { opacity: 0; transform: translateY(-50px) rotate(-8deg) scale(0.5); }
-        }
-
-        .page-wrap {
-            position: relative;
-            z-index: 3;
+        .container {
+            width: 100%;
+            max-width: 480px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 2rem 1rem 3rem;
-            min-height: 100vh;
+            gap: 1.2rem;
+            position: relative;
+            z-index: 2;
         }
 
-        .hero-top {
+        /* TOPO */
+        .hero {
             text-align: center;
-            max-width: 520px;
-            margin-bottom: 1.2rem;
-            animation: fadeUp 0.8s ease;
+            animation: fadeIn 0.8s ease;
         }
-        .badge-novo {
+        .badge {
             display: inline-block;
-            background: rgba(58, 124, 165, 0.18);
-            border: 1px solid rgba(126, 200, 227, 0.45);
+            background: rgba(58, 124, 165, 0.15);
+            border: 1px solid rgba(126, 200, 227, 0.4);
             color: #7ec8e3;
             font-size: 0.65rem;
             font-weight: 700;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            padding: 0.45rem 2rem;
+            padding: 0.35rem 1.6rem;
             border-radius: 50px;
-            margin-bottom: 1.3rem;
+            margin-bottom: 0.8rem;
             backdrop-filter: blur(6px);
-            box-shadow: 0 4px 20px rgba(58, 124, 165, 0.2);
-            animation: pulseBadge 2.5s ease-in-out infinite;
+            box-shadow: 0 4px 15px rgba(58, 124, 165, 0.2);
         }
-        @keyframes pulseBadge {
-            0%, 100% { box-shadow: 0 4px 20px rgba(58, 124, 165, 0.2); }
-            50% { box-shadow: 0 4px 35px rgba(126, 200, 227, 0.45); }
-        }
-        .hero-top h1 {
-            font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-            font-size: clamp(2.2rem, 7vw, 3.2rem);
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.9rem, 7vw, 2.8rem);
             font-weight: 800;
-            color: var(--branco-warm);
+            color: var(--branco);
             line-height: 1.1;
-            margin-bottom: 0.4rem;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 0 80px rgba(58, 124, 165, 0.3);
-            letter-spacing: -0.5px;
+            text-shadow: 0 3px 20px rgba(0,0,0,0.5);
+            margin-bottom: 0.3rem;
         }
-        .hero-top h1 .destaque-azul {
-            background: linear-gradient(135deg, #7ec8e3 0%, #5ba0c8 40%, #3a7ca5 70%, #c9e8f2 100%);
+        .hero h1 span {
+            background: linear-gradient(135deg, #7ec8e3, #3a7ca5);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             font-style: italic;
         }
-        .hero-top .sub {
-            color: rgba(250, 247, 240, 0.7);
-            font-size: 0.9rem;
+        .hero .sub {
+            color: var(--texto-suave);
+            font-size: 0.85rem;
             font-weight: 300;
-            margin-bottom: 0.8rem;
-            letter-spacing: 0.5px;
-            font-style: italic;
+            margin-bottom: 0.5rem;
         }
-        .estrelas {
+        .stars {
             color: #e0b354;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
         }
-        .estrelas span {
-            font-size: 0.7rem;
-            color: rgba(250, 247, 240, 0.6);
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: 0;
+        .stars span {
+            font-size: 0.65rem;
+            color: rgba(250, 247, 240, 0.5);
         }
 
-        /* BANNER DE URGÊNCIA COM CRONÔMETRO E BOTÃO */
-        .urgencia-banner {
-            max-width: 460px;
-            width: 100%;
-            margin-bottom: 1.8rem;
-            background: rgba(13, 27, 42, 0.7);
-            backdrop-filter: blur(18px);
-            border: 1px solid rgba(212, 175, 55, 0.45);
-            border-radius: 2.5rem;
-            padding: 1.2rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* BANNER URGÊNCIA */
+        .urgency {
+            background: rgba(13, 27, 42, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--borda);
+            border-radius: 1.8rem;
+            padding: 1rem;
             text-align: center;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 40px rgba(212, 175, 55, 0.1);
-            animation: fadeUp 0.6s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            animation: fadeIn 0.6s ease;
         }
         .timer-label {
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            color: #e8c860;
-            margin-bottom: 0.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            color: var(--dourado);
+            margin-bottom: 0.4rem;
             font-weight: 600;
         }
         .cronometro {
             display: flex;
-            gap: 10px;
             justify-content: center;
-            margin-bottom: 1rem;
-            font-family: 'Poppins', sans-serif;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
         }
-        .tempo-bloco {
+        .tempo {
             background: #0d1b2a;
-            border: 1px solid #d4af37;
-            border-radius: 12px;
-            padding: 0.4rem 0.6rem;
-            min-width: 48px;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--dourado);
+            border-radius: 10px;
+            padding: 0.3rem 0.6rem;
+            min-width: 45px;
         }
-        .tempo-bloco span {
+        .tempo span {
             display: block;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            color: #faf7f0;
+            color: #fff;
             line-height: 1;
         }
-        .tempo-bloco small {
-            font-size: 0.55rem;
+        .tempo small {
+            font-size: 0.5rem;
+            color: var(--azul-claro);
             letter-spacing: 1px;
-            color: #7ec8e3;
-            text-transform: uppercase;
         }
-        .btn-comprar-topo {
+        .btn-top {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: linear-gradient(115deg, #d4af37, #e8c860);
+            justify-content: center;
+            gap: 6px;
+            background: linear-gradient(115deg, var(--dourado), var(--dourado-claro));
             color: #0d1b2a;
-            padding: 0.9rem 2.2rem;
+            padding: 0.7rem 1.8rem;
             border-radius: 3rem;
             font-weight: 800;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-decoration: none;
-            letter-spacing: 0.8px;
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
-            transition: all 0.3s;
-            margin-top: 0.2rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            transition: 0.3s;
         }
-        .btn-comprar-topo:hover {
-            background: linear-gradient(115deg, #e8c860, #f0d870);
-            transform: scale(1.04);
-            box-shadow: 0 14px 35px rgba(212, 175, 55, 0.7);
+        .btn-top:active {
+            transform: scale(0.96);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.6);
         }
 
+        /* CARD PRINCIPAL */
         .card {
-            background: var(--bg-card);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border: 1px solid var(--borda-dourada);
-            border-radius: 2.8rem;
-            max-width: 460px;
-            width: 100%;
-            overflow: hidden;
-            box-shadow:
-                0 35px 60px rgba(0, 0, 0, 0.7),
-                inset 0 1px 40px rgba(126, 200, 227, 0.06),
-                0 0 80px rgba(58, 124, 165, 0.08);
-            animation: fadeUp 0.7s ease-out;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            position: relative;
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 2.85rem;
-            padding: 2px;
-            background: linear-gradient(160deg, rgba(212,175,55,0.5) 0%, rgba(126,200,227,0.3) 30%, rgba(58,124,165,0.2) 60%, rgba(212,175,55,0.4) 100%);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            z-index: 1;
-        }
-        @keyframes fadeUp {
-            from { opacity:0; transform:translateY(35px); }
-            to { opacity:1; transform:translateY(0); }
-        }
-
-        /* SEÇÃO VÍDEO + PRODUTOS LADO A LADO */
-        .media-showcase {
-            display: flex;
-            gap: 0.5rem;
-            margin: 1.5rem 1.5rem 0.8rem;
-            height: 220px;
-            position: relative;
-            z-index: 2;
-        }
-        .video-col {
-            flex: 1;
-            border-radius: 1.2rem;
-            overflow: hidden;
-            border: 2px solid rgba(126, 200, 227, 0.35);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            background: #000;
-        }
-        .video-col video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .galeria-col {
-            flex: 1;
-            border-radius: 1.2rem;
-            overflow: hidden;
-            border: 2px solid rgba(212, 175, 55, 0.35);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            background: #060f18;
-            position: relative;
-        }
-        .galeria-track {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--borda);
+            border-radius: 2rem;
+            padding: 1rem;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.6), inset 0 1px 20px rgba(126,200,227,0.04);
             display: flex;
             flex-direction: column;
-            height: 100%;
-            transition: transform 0.5s cubic-bezier(0.25,0.1,0.25,1);
+            gap: 1rem;
+            animation: fadeIn 0.7s ease;
         }
-        .galeria-track img {
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* CARROSSEL */
+        .carrossel-wrap {
+            position: relative;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            border: 2px solid rgba(126,200,227,0.25);
+            aspect-ratio: 1 / 1;
+            background: #060f18;
+        }
+        .carrossel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.45s cubic-bezier(0.25,0.1,0.25,1);
+            will-change: transform;
+        }
+        .carrossel-track img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             flex-shrink: 0;
         }
-        .galeria-indicators {
+        .carrossel-btn {
             position: absolute;
-            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(13,27,42,0.7);
+            backdrop-filter: blur(8px);
+            color: #e0d5c0;
+            border: 1px solid var(--dourado);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            border: none;
+            outline: none;
+        }
+        .carrossel-btn:active { background: rgba(58,124,165,0.5); }
+        .carrossel-prev { left: 8px; }
+        .carrossel-next { right: 8px; }
+        .carrossel-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+        .carrossel-dots span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255,255,240,0.35);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .carrossel-dots span.ativo {
+            background: var(--azul-claro);
+            box-shadow: 0 0 12px var(--azul-claro);
+            transform: scale(1.4);
+        }
+
+        /* MÍDIA LADO A LADO */
+        .media-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            height: 200px;
+        }
+        .video-box {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 2px solid rgba(126,200,227,0.3);
+            background: #000;
+        }
+        .video-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .galeria-box {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 2px solid rgba(212,175,55,0.3);
+            background: #060f18;
+            position: relative;
+        }
+        .galeria-vertical {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.4s ease;
+        }
+        .galeria-vertical img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .galeria-nav {
+            position: absolute;
+            right: 8px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             z-index: 3;
         }
-        .galeria-indicators span {
-            width: 8px;
-            height: 8px;
+        .galeria-nav span {
+            width: 7px;
+            height: 7px;
             border-radius: 50%;
-            background: rgba(255,255,240,0.4);
+            background: rgba(255,255,240,0.35);
             cursor: pointer;
             transition: 0.3s;
         }
-        .galeria-indicators span.active {
-            background: #d4af37;
-            box-shadow: 0 0 12px #d4af37;
+        .galeria-nav span.ativo {
+            background: var(--dourado);
+            box-shadow: 0 0 10px var(--dourado);
         }
 
-        .montagem-mini {
+        /* MONTAGEM MINI */
+        .montagem {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 6px;
-            padding: 0.8rem 1rem 0.2rem;
-            font-size: 2rem;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+            font-size: 1.8rem;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
         }
-        .peca-anim { animation: flutuarPeca 1.3s infinite alternate; display: inline-block; }
-        .peca-anim:nth-child(1) { animation-delay: 0s; }
-        .peca-anim:nth-child(2) { animation-delay: 0.25s; }
-        .peca-anim:nth-child(3) { animation-delay: 0.5s; }
-        @keyframes flutuarPeca {
-            0% { transform: translateY(0) rotate(0deg); opacity:0.7; }
-            100% { transform: translateY(-8px) rotate(8deg); opacity:1; }
+        .montagem .peca {
+            animation: floatPeca 1.3s infinite alternate;
         }
-        .seta-montagem { font-size: 1.4rem; color: #d4af37; margin:0 4px; animation: brilharSeta 1.5s infinite; }
-        @keyframes brilharSeta { 0%,100%{opacity:0.5; transform:scale(1);} 50%{opacity:1; transform:scale(1.3);} }
-        .vaso-final { font-size: 2.8rem; background: rgba(58,124,165,0.15); border-radius: 50%; padding: 6px; backdrop-filter: blur(8px); }
-        .legenda-montagem {
+        .montagem .peca:nth-child(2) { animation-delay: 0.2s; }
+        .montagem .peca:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes floatPeca {
+            0% { transform: translateY(0); opacity: 0.7; }
+            100% { transform: translateY(-6px); opacity: 1; }
+        }
+        .legenda {
             text-align: center;
             font-size: 0.65rem;
             font-weight: 700;
-            letter-spacing: 3px;
-            color: #7ec8e3;
-            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--azul-claro);
         }
 
+        /* PASSOS */
         .passos {
             display: flex;
             justify-content: center;
             gap: 1.2rem;
-            margin: 0.5rem 1.5rem 1.2rem;
-            color: rgba(250,247,240,0.8);
             font-size: 0.7rem;
+            color: var(--texto-suave);
         }
-        .passo { display: flex; flex-direction: column; align-items: center; gap:0.3rem; }
-        .passo span:first-child {
-            background: rgba(58,124,165,0.25);
-            border:1px solid rgba(126,200,227,0.4);
-            border-radius:50%;
-            width:28px; height:28px;
-            display:flex; align-items:center; justify-content:center;
-            color:#7ec8e3; font-weight:700;
+        .passo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        .preco-box {
-            background: linear-gradient(160deg, #0d1b2a, #13293d 40%, #0f1f30);
-            margin: 0 1.5rem 1.2rem;
-            border-radius: 2rem;
-            padding: 1.2rem 1rem;
-            text-align: center;
-            border: 1px solid rgba(212,175,55,0.35);
-            box-shadow: inset 0 2px 15px rgba(0,0,0,0.5), 0 10px 25px rgba(0,0,0,0.5);
-        }
-        .preco-antigo { font-size:0.8rem; text-decoration:line-through; color:rgba(255,255,255,0.35); }
-        .preco-principal { font-size:3rem; font-weight:900; color:#faf7f0; font-family:'Playfair Display', serif; }
-        .preco-principal small { font-size:1.4rem; }
-        .badge-pix {
-            display:inline-block; background: linear-gradient(135deg,#d4af37,#e8c860);
-            color:#0d1b2a; padding:0.4rem 1.8rem; border-radius:30px; font-weight:800; font-size:0.75rem;
-            margin-top:0.6rem; box-shadow:0 6px 20px rgba(212,175,55,0.5);
-        }
-
-        .vantagens {
-            background: rgba(250,247,240,0.03); border-radius:1.8rem; margin:0 1.5rem 1.2rem;
-            padding:1rem 1.3rem; border:1px solid rgba(126,200,227,0.2); backdrop-filter: blur(10px);
-        }
-        .vantagens p { display:flex; align-items:center; gap:0.6rem; font-size:0.75rem; margin:0.5rem 0; color:var(--texto-suave); }
-        .vantagens strong { color:#7ec8e3; }
-
-        /* SEÇÃO HISTÓRIAS DE CLIENTES */
-        .historias-clientes {
-            margin: 0 1.5rem 1.4rem;
-            background: rgba(126,200,227,0.03);
-            border-radius: 1.8rem;
-            padding: 1.2rem 1.2rem;
-            border: 1px solid rgba(212,175,55,0.2);
-            backdrop-filter: blur(8px);
-        }
-        .historias-titulo {
-            font-size: 0.8rem;
+        .passo span {
+            background: rgba(58,124,165,0.2);
+            border: 1px solid rgba(126,200,227,0.35);
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
-            letter-spacing: 2px;
-            color: #d4af37;
-            margin-bottom: 1rem;
+            color: var(--azul-claro);
+            margin-bottom: 0.2rem;
+        }
+
+        /* PREÇO */
+        .preco-box {
+            background: linear-gradient(160deg, #0d1b2a, #13293d);
+            border-radius: 1.5rem;
+            padding: 1rem;
             text-align: center;
+            border: 1px solid var(--borda);
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+        .preco-antigo {
+            font-size: 0.75rem;
+            text-decoration: line-through;
+            color: rgba(255,255,255,0.3);
+        }
+        .preco-principal {
+            font-size: 2.6rem;
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            color: var(--branco);
+            line-height: 1;
+        }
+        .preco-principal small { font-size: 1.2rem; }
+        .badge-pix {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--dourado), var(--dourado-claro));
+            color: #0d1b2a;
+            padding: 0.3rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+            box-shadow: 0 4px 12px rgba(212,175,55,0.4);
+        }
+
+        /* VANTAGENS */
+        .vantagens {
+            background: rgba(250,247,240,0.02);
+            border-radius: 1.2rem;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(126,200,227,0.15);
+            backdrop-filter: blur(6px);
+        }
+        .vantagens p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            margin: 0.4rem 0;
+            color: var(--texto-suave);
+        }
+        .vantagens strong { color: var(--azul-claro); }
+
+        /* DEPOIMENTOS */
+        .depoimentos {
+            background: rgba(126,200,227,0.02);
+            border-radius: 1.2rem;
+            padding: 0.9rem;
+            border: 1px solid rgba(212,175,55,0.15);
+            backdrop-filter: blur(6px);
+            text-align: center;
+        }
+        .depoimentos h3 {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: var(--dourado);
+            margin-bottom: 0.6rem;
             text-transform: uppercase;
         }
-        .depoimentos-carousel {
-            position: relative;
-            overflow: hidden;
-            min-height: 80px;
-        }
-        .depoimento-item {
-            position: absolute;
-            width: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            text-align: center;
-            padding: 0 0.2rem;
-        }
-        .depoimento-item.ativo {
-            opacity: 1;
-            position: relative;
-        }
-        .depoimento-estrelas {
-            color: #e0b354;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            margin-bottom: 0.3rem;
-        }
-        .depoimento-texto {
-            font-size: 0.78rem;
-            color: #ddd;
+        .depoimento-ativo {
             font-style: italic;
+            color: #ddd;
+            font-size: 0.75rem;
             line-height: 1.4;
+            margin-bottom: 0.4rem;
         }
         .depoimento-autor {
             font-weight: 700;
             color: #fff;
-            margin-top: 0.4rem;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
         }
         .depoimento-local {
             font-size: 0.6rem;
-            color: #7ec8e3;
-            letter-spacing: 0.5px;
+            color: var(--azul-claro);
         }
         .depoimentos-nav {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-top: 0.8rem;
+            gap: 7px;
+            margin-top: 0.6rem;
         }
         .depoimentos-nav span {
             width: 6px;
@@ -496,306 +479,386 @@
             transition: 0.3s;
         }
         .depoimentos-nav span.ativo {
-            background: #d4af37;
-            box-shadow: 0 0 10px #d4af37;
+            background: var(--dourado);
+            box-shadow: 0 0 8px var(--dourado);
         }
 
+        /* BOTÃO COMPRAR */
         .btn-comprar {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            background: linear-gradient(115deg, #d4af37 0%, #e8c860 30%, #d4af37 60%, #c49b2a 100%);
+            gap: 8px;
+            background: linear-gradient(115deg, var(--dourado), var(--dourado-claro));
             color: #0d1b2a;
-            text-align: center;
-            padding: 1rem 1.8rem;
-            border-radius: 4rem;
+            padding: 0.9rem;
+            border-radius: 3rem;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
-            margin: 0 1.5rem 1rem;
-            box-shadow: 0 10px 30px rgba(212,175,55,0.5);
-            transition: all 0.35s;
-            letter-spacing: 0.8px;
+            box-shadow: 0 8px 25px rgba(212,175,55,0.4);
+            transition: 0.3s;
+            letter-spacing: 0.5px;
         }
-        .btn-comprar:hover {
-            background: linear-gradient(115deg, #e8c860 0%, #f0d870 30%, #e8c860 60%, #d4af37 100%);
-            transform: scale(1.02);
-            box-shadow: 0 16px 40px rgba(212,175,55,0.7);
-        }
-        .rodape-card {
+        .btn-comprar:active { transform: scale(0.96); }
+        .footer-card {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            flex-wrap: wrap;
+            gap: 0.8rem;
             font-size: 0.6rem;
-            color: rgba(255,255,240,0.45);
-            padding: 0.4rem 1rem 1.5rem;
+            color: rgba(255,255,240,0.4);
+            padding-top: 0.2rem;
         }
 
-        footer {
-            margin-top: 1.5rem;
-            font-size: 0.65rem;
-            color: rgba(255,255,240,0.3);
-            letter-spacing: 1px;
-            padding-bottom: 5rem;
-        }
-
-        /* WHATSAPP FLUTUANTE */
-        .whatsapp-flutuante {
+        /* WHATSAPP */
+        .wpp-float {
             position: fixed;
-            bottom: 28px;
-            right: 28px;
+            bottom: 20px;
+            right: 16px;
             z-index: 9999;
             display: flex;
             align-items: center;
-            gap: 12px;
-            cursor: pointer;
+            gap: 8px;
             text-decoration: none;
             animation: bounceWpp 2s infinite;
         }
         @keyframes bounceWpp {
             0%,100%{ transform:translateY(0); }
-            30%{ transform:translateY(-12px); }
+            30%{ transform:translateY(-10px); }
             50%{ transform:translateY(0); }
-            70%{ transform:translateY(-6px); }
+            70%{ transform:translateY(-5px); }
         }
-        .whatsapp-balao-texto {
+        .wpp-balao {
             background: #fff;
             color: #1a1a1a;
-            padding: 0.7rem 1.2rem;
-            border-radius: 2rem 2rem 0.3rem 2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem 2rem 0.2rem 2rem;
             font-weight: 600;
-            font-size: 0.85rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+            font-size: 0.7rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            display: none;
         }
-        .whatsapp-icone-grande {
-            width: 64px; height: 64px;
+        .wpp-icone {
+            width: 54px;
+            height: 54px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+            position: relative;
         }
-        .whatsapp-icone-grande svg { width: 36px; height: 36px; fill: #fff; }
+        .wpp-icone svg { width: 30px; height: 30px; fill: #fff; }
+        .wpp-icone::before,
+        .wpp-icone::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid rgba(37,211,102,0.4);
+            animation: onda 2s ease-out infinite;
+        }
+        .wpp-icone::after { animation-delay: 0.6s; }
+        @keyframes onda {
+            0% { transform: scale(0.8); opacity: 0.7; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
 
-        @media (max-width: 480px) {
-            .media-showcase {
-                flex-direction: column;
+        /* Responsivo para telas menores */
+        @media (max-width: 400px) {
+            .media-row {
+                grid-template-columns: 1fr;
                 height: auto;
-                gap: 0.8rem;
+                gap: 0.5rem;
             }
-            .video-col, .galeria-col {
-                height: 180px;
+            .video-box, .galeria-box {
+                height: 170px;
             }
-            .card { border-radius: 2rem; }
-            .preco-principal { font-size: 2.4rem; }
-            .btn-comprar-topo { width: 100%; justify-content: center; }
-            .whatsapp-balao-texto { display: none; }
+            .preco-principal { font-size: 2.2rem; }
+            .btn-comprar { font-size: 1rem; }
+            .btn-top { width: 100%; }
         }
+
+        footer {
+            text-align: center;
+            font-size: 0.6rem;
+            color: rgba(255,255,240,0.3);
+            margin-top: 0.5rem;
+        }
+        footer span { color: var(--azul-claro); }
     </style>
 </head>
 <body>
-<div class="particulas-bg">
-    <span class="particula">🏺</span><span class="particula">⚱️</span><span class="particula">🏺</span>
-    <span class="particula">✨</span><span class="particula">🔷</span><span class="particula">🏺</span>
-</div>
-
-<div class="page-wrap">
-    <div class="hero-top">
-        <div class="badge-novo">✦ Coleção Exclusiva ✦</div>
-        <h1>Vaso <span class="destaque-azul">3D</span> Quebra‑Cabeça<br>Porcelana Azul e Branca</h1>
-        <p class="sub">Arte milenar chinesa — agora em suas mãos</p>
-        <div class="estrelas">★★★★★ <span>4.9 (86 avaliações)</span></div>
-    </div>
-
-    <!-- BANNER DE URGÊNCIA COM CRONÔMETRO E BOTÃO -->
-    <div class="urgencia-banner" id="urgenciaBanner">
-        <div class="timer-label">⏳ OFERTA RELÂMPAGO TERMINA EM:</div>
-        <div class="cronometro" id="cronometro">
-            <div class="tempo-bloco"><span id="horas">00</span><small>HORAS</small></div>
-            <div class="tempo-bloco"><span id="minutos">00</span><small>MIN</small></div>
-            <div class="tempo-bloco"><span id="segundos">00</span><small>SEG</small></div>
+    <div class="container">
+        <!-- TOPO -->
+        <div class="hero">
+            <div class="badge">✦ Coleção Exclusiva ✦</div>
+            <h1>Vaso <span>3D</span> Quebra‑Cabeça<br>Porcelana Azul e Branca</h1>
+            <p class="sub">Arte milenar chinesa — agora em suas mãos</p>
+            <div class="stars">★★★★★ <span>4.9 (86 avaliações)</span></div>
         </div>
-        <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-comprar-topo"
-           onclick="gtag('event','conversion_top',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
-           🛒 COMPRAR AGORA COM DESCONTO
-        </a>
-    </div>
 
-    <div class="card">
-        <!-- VÍDEO + PRODUTOS LADO A LADO -->
-        <div class="media-showcase">
-            <div class="video-col">
-                <video controls playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%230d1b2a' width='200' height='200'/%3E%3Ctext fill='%23d4af37' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='14'%3E🎬 Montagem%3C/text%3E%3C/svg%3E">
-                    <source src="flor3d.mp4" type="video/mp4">
-                </video>
+        <!-- BANNER URGÊNCIA -->
+        <div class="urgency">
+            <div class="timer-label">⏳ OFERTA RELÂMPAGO TERMINA EM:</div>
+            <div class="cronometro" id="cronometro">
+                <div class="tempo"><span id="horas">00</span><small>HORAS</small></div>
+                <div class="tempo"><span id="minutos">00</span><small>MIN</small></div>
+                <div class="tempo"><span id="segundos">00</span><small>SEG</small></div>
             </div>
-            <div class="galeria-col" id="galeriaVertical">
-                <div class="galeria-track" id="galeriaTrack">
+            <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-top"
+               onclick="gtag('event','conversion_top',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
+               🛒 COMPRAR AGORA COM DESCONTO
+            </a>
+        </div>
+
+        <!-- CARD PRINCIPAL -->
+        <div class="card">
+            <!-- CARROSSEL -->
+            <div class="carrossel-wrap" id="carrossel">
+                <div class="carrossel-track" id="track">
                     <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso montado">
                     <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe">
                     <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças">
                     <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Vaso decorado">
                 </div>
-                <div class="galeria-indicators" id="galeriaIndicators">
-                    <span class="active" data-index="0"></span>
+                <button class="carrossel-btn carrossel-prev" id="prevBtn">❮</button>
+                <button class="carrossel-btn carrossel-next" id="nextBtn">❯</button>
+                <div class="carrossel-dots" id="dots">
+                    <span class="ativo" data-index="0"></span>
                     <span data-index="1"></span>
                     <span data-index="2"></span>
                     <span data-index="3"></span>
                 </div>
             </div>
-        </div>
 
-        <div class="montagem-mini">
-            <span class="peca-anim">🧩</span><span class="peca-anim">🔷</span><span class="peca-anim">🧩</span>
-            <span class="seta-montagem">→</span><span class="vaso-final">🏺✨</span>
-        </div>
-        <div class="legenda-montagem">MONTAGEM PRECISA · ENCAIXE PERFEITO</div>
-
-        <div class="passos">
-            <div class="passo"><span>①</span> Separe</div>
-            <div class="passo"><span>②</span> Encaixe</div>
-            <div class="passo"><span>③</span> Decore</div>
-        </div>
-
-        <div class="preco-box">
-            <div class="preco-antigo">De R$ 169,90</div>
-            <div class="preco-principal"><small>R$</small> 99,99</div>
-            <div class="badge-pix">💎 PIX · 41% OFF</div>
-        </div>
-
-        <div class="vantagens">
-            <p>🏺 <strong>Acabamento premium</strong> — brilho e textura de porcelana real</p>
-            <p>🧩 <strong>Encaixes precisos</strong> — sem necessidade de cola</p>
-            <p>🎨 <strong>Design exclusivo</strong> — inspirado na dinastia Ming</p>
-            <p>📦 <strong>Embalagem presenteável</strong> — ideal para ocasiões especiais</p>
-            <p>🔒 <strong>Garantia Shopee</strong> — devolução gratuita</p>
-        </div>
-
-        <!-- HISTÓRIAS DE CLIENTES -->
-        <div class="historias-clientes">
-            <div class="historias-titulo">❤️ Compradores encantados</div>
-            <div class="depoimentos-carousel" id="depoimentosCarousel">
-                <div class="depoimento-item ativo">
-                    <div class="depoimento-estrelas">★★★★★</div>
-                    <p class="depoimento-texto">"Comprei para decorar minha sala e todos acham que é porcelana de museu. A montagem foi uma terapia!"</p>
-                    <div class="depoimento-autor">Maria Fernanda</div>
-                    <div class="depoimento-local">São Paulo · Compra verificada</div>
+            <!-- MÍDIA LADO A LADO -->
+            <div class="media-row">
+                <div class="video-box">
+                    <video controls playsinline preload="metadata"
+                           poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%230d1b2a' width='200' height='200'/%3E%3Ccircle cx='100' cy='100' r='30' fill='none' stroke='%237ec8e3' stroke-width='1.5'/%3E%3Cpolygon points='94,90 94,110 112,100' fill='%23d4af37'/%3E%3C/svg%3E">
+                        <source src="flor3d.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <div class="depoimento-item">
-                    <div class="depoimento-estrelas">★★★★★</div>
-                    <p class="depoimento-texto">"Presenteei minha mãe e ela chorou de emoção. Peça linda, encaixes perfeitos e chegou rápido."</p>
-                    <div class="depoimento-autor">João Pedro</div>
-                    <div class="depoimento-local">Rio de Janeiro · Compra verificada</div>
-                </div>
-                <div class="depoimento-item">
-                    <div class="depoimento-estrelas">★★★★★</div>
-                    <p class="depoimento-texto">"Já comprei 3 vasos diferentes. Viram obras de arte na estante. Super recomendo!"</p>
-                    <div class="depoimento-autor">Ana Clara</div>
-                    <div class="depoimento-local">Belo Horizonte · Compra verificada</div>
-                </div>
-                <div class="depoimento-item">
-                    <div class="depoimento-estrelas">★★★★★</div>
-                    <p class="depoimento-texto">"Qualidade impressionante. Já montei com meu filho, foi um momento especial. Nota 1000!"</p>
-                    <div class="depoimento-autor">Carlos Eduardo</div>
-                    <div class="depoimento-local">Curitiba · Compra verificada</div>
+                <div class="galeria-box" id="galeriaBox">
+                    <div class="galeria-vertical" id="galeriaTrack">
+                        <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso">
+                        <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe">
+                        <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças">
+                        <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Decorado">
+                    </div>
+                    <div class="galeria-nav" id="galeriaNav">
+                        <span class="ativo" data-index="0"></span>
+                        <span data-index="1"></span>
+                        <span data-index="2"></span>
+                        <span data-index="3"></span>
+                    </div>
                 </div>
             </div>
-            <div class="depoimentos-nav" id="depoimentosNav">
-                <span class="ativo" data-index="0"></span>
-                <span data-index="1"></span>
-                <span data-index="2"></span>
-                <span data-index="3"></span>
+
+            <!-- MONTAGEM MINI -->
+            <div class="montagem">
+                <span class="peca">🧩</span>
+                <span class="peca">🔷</span>
+                <span class="peca">🧩</span>
+                <span style="color:var(--dourado); font-size:1.3rem;">→</span>
+                <span style="font-size:2.4rem;">🏺✨</span>
+            </div>
+            <div class="legenda">MONTAGEM PRECISA · ENCAIXE PERFEITO</div>
+
+            <!-- PASSOS -->
+            <div class="passos">
+                <div class="passo"><span>①</span> Separe</div>
+                <div class="passo"><span>②</span> Encaixe</div>
+                <div class="passo"><span>③</span> Decore</div>
+            </div>
+
+            <!-- PREÇO -->
+            <div class="preco-box">
+                <div class="preco-antigo">De R$ 169,90</div>
+                <div class="preco-principal"><small>R$</small> 99,99</div>
+                <div class="badge-pix">💎 PIX · 41% OFF</div>
+            </div>
+
+            <!-- VANTAGENS -->
+            <div class="vantagens">
+                <p>🏺 <strong>Acabamento premium</strong> — brilho de porcelana real</p>
+                <p>🧩 <strong>Encaixes precisos</strong> — sem necessidade de cola</p>
+                <p>🎨 <strong>Design exclusivo</strong> — inspirado na dinastia Ming</p>
+                <p>📦 <strong>Embalagem presenteável</strong> — ideal para ocasiões especiais</p>
+                <p>🔒 <strong>Garantia Shopee</strong> — devolução gratuita</p>
+            </div>
+
+            <!-- DEPOIMENTOS -->
+            <div class="depoimentos">
+                <h3>❤️ Compradores encantados</h3>
+                <div id="depoimentoTexto" class="depoimento-ativo">
+                    "Comprei para decorar minha sala e todos acham que é porcelana de museu. A montagem foi uma terapia!"
+                </div>
+                <div class="depoimento-autor" id="depoimentoAutor">Maria Fernanda</div>
+                <div class="depoimento-local" id="depoimentoLocal">São Paulo · Compra verificada</div>
+                <div class="depoimentos-nav" id="depoimentosNav">
+                    <span class="ativo" data-index="0"></span>
+                    <span data-index="1"></span>
+                    <span data-index="2"></span>
+                    <span data-index="3"></span>
+                </div>
+            </div>
+
+            <!-- BOTÃO COMPRAR -->
+            <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-comprar"
+               onclick="gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
+               🛒 COMPRAR NA SHOPEE
+            </a>
+            <div class="footer-card">
+                <span>🔐 Compra segura</span>
+                <span>🚚 Frete grátis</span>
+                <span>🔄 7 dias garantia</span>
+                <span>🏆 +2.000 vendas</span>
             </div>
         </div>
 
-        <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-comprar"
-           onclick="gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
-           <span>🛒</span> COMPRAR NA SHOPEE
-        </a>
-        <div class="rodape-card">
-            <span>🔐 Compra segura</span>
-            <span>🚚 Frete grátis</span>
-            <span>🔄 7 dias garantia</span>
-            <span>🏆 +2.000 vendas</span>
-        </div>
+        <footer>© 2025 <span>|</span> flor3d.shop</footer>
     </div>
-    <footer>© 2025 | Monte sua obra‑prima</footer>
-</div>
 
-<!-- WHATSAPP FLUTUANTE -->
-<a href="https://wa.me/5513996710855?text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+o+Vaso+3D+Quebra-Cabe%C3%A7a+de+Porcelana+Azul+e+Branca." 
-   target="_blank" class="whatsapp-flutuante">
-   <div class="whatsapp-balao-texto">Dúvidas? Chama no WhatsApp!<br><small>(13) 99671-0855</small></div>
-   <div class="whatsapp-icone-grande">
-       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-   </div>
-</a>
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5513996710855?text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+o+Vaso+3D+Quebra-Cabe%C3%A7a+de+Porcelana+Azul+e+Branca."
+       target="_blank" class="wpp-float" onclick="gtag('event','click_whatsapp',{'event_category':'lead'});">
+        <div class="wpp-balao">Dúvidas? Chama aqui!<br><small>(13) 99671-0855</small></div>
+        <div class="wpp-icone">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        </div>
+    </a>
 
-<script>
-    // CRONÔMETRO - 24h a partir de agora
-    (function() {
-        const agora = new Date();
-        const fim = new Date(agora.getTime() + 24 * 60 * 60 * 1000); // 24h futuras
-        function atualizarTimer() {
-            const agora = new Date();
-            const diff = fim - agora;
-            if (diff <= 0) {
-                document.getElementById('horas').textContent = '00';
-                document.getElementById('minutos').textContent = '00';
-                document.getElementById('segundos').textContent = '00';
-                return;
+    <script>
+        // CRONÔMETRO 24H
+        (function() {
+            const fim = new Date(Date.now() + 24 * 60 * 60 * 1000);
+            const hEl = document.getElementById('horas');
+            const mEl = document.getElementById('minutos');
+            const sEl = document.getElementById('segundos');
+            function tick() {
+                const diff = fim - Date.now();
+                if (diff <= 0) { hEl.textContent = '00'; mEl.textContent = '00'; sEl.textContent = '00'; return; }
+                hEl.textContent = String(Math.floor(diff / 3600000)).padStart(2, '0');
+                mEl.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+                sEl.textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
             }
-            const h = Math.floor(diff / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-            document.getElementById('horas').textContent = String(h).padStart(2, '0');
-            document.getElementById('minutos').textContent = String(m).padStart(2, '0');
-            document.getElementById('segundos').textContent = String(s).padStart(2, '0');
-        }
-        atualizarTimer();
-        setInterval(atualizarTimer, 1000);
-    })();
+            tick();
+            setInterval(tick, 1000);
+        })();
 
-    // GALERIA VERTICAL LADO A LADO
-    (function() {
-        const track = document.getElementById('galeriaTrack');
-        const indicators = document.querySelectorAll('#galeriaIndicators span');
-        let current = 0;
-        const total = 4;
-        function goTo(index) {
-            if (index < 0) index = total - 1;
-            if (index >= total) index = 0;
-            current = index;
-            track.style.transform = `translateY(-${current * 100}%)`;
-            indicators.forEach((dot, i) => dot.classList.toggle('active', i === current));
-        }
-        indicators.forEach(dot => {
-            dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index)));
-        });
-        setInterval(() => goTo(current + 1), 3000);
-    })();
+        // CARROSSEL PRINCIPAL
+        (function() {
+            const track = document.getElementById('track');
+            const dots = document.querySelectorAll('#dots span');
+            const prev = document.getElementById('prevBtn');
+            const next = document.getElementById('nextBtn');
+            const total = 4;
+            let current = 0;
+            let interval;
+            let transitioning = false;
 
-    // CARROSSEL DE DEPOIMENTOS (HISTÓRIAS)
-    (function() {
-        const items = document.querySelectorAll('.depoimento-item');
-        const navDots = document.querySelectorAll('#depoimentosNav span');
-        let current = 0;
-        function mostrar(index) {
-            items.forEach((item, i) => item.classList.toggle('ativo', i === index));
-            navDots.forEach((dot, i) => dot.classList.toggle('ativo', i === index));
-            current = index;
-        }
-        navDots.forEach(dot => {
-            dot.addEventListener('click', () => mostrar(parseInt(dot.dataset.index)));
-        });
-        setInterval(() => {
-            let next = current + 1;
-            if (next >= items.length) next = 0;
-            mostrar(next);
-        }, 4000);
-    })();
-</script>
+            function goTo(index) {
+                if (transitioning) return;
+                transitioning = true;
+                if (index < 0) index = total - 1;
+                if (index >= total) index = 0;
+                current = index;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dots.forEach((d, i) => d.classList.toggle('ativo', i === current));
+                setTimeout(() => { transitioning = false; }, 450);
+            }
+
+            function nextSlide() { goTo(current + 1); }
+            function prevSlide() { goTo(current - 1); }
+
+            prev.addEventListener('click', () => { clearInterval(interval); prevSlide(); startAuto(); });
+            next.addEventListener('click', () => { clearInterval(interval); nextSlide(); startAuto(); });
+            dots.forEach(d => d.addEventListener('click', () => {
+                clearInterval(interval);
+                goTo(parseInt(d.dataset.index));
+                startAuto();
+            }));
+
+            // Touch
+            let touchStartX = 0;
+            track.parentElement.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
+            track.parentElement.addEventListener('touchend', e => {
+                const diff = touchStartX - e.changedTouches[0].screenX;
+                if (Math.abs(diff) > 30) {
+                    clearInterval(interval);
+                    diff > 0 ? nextSlide() : prevSlide();
+                    startAuto();
+                }
+            }, {passive: true});
+
+            function startAuto() { clearInterval(interval); interval = setInterval(nextSlide, 4000); }
+            startAuto();
+        })();
+
+        // GALERIA VERTICAL
+        (function() {
+            const track = document.getElementById('galeriaTrack');
+            const nav = document.querySelectorAll('#galeriaNav span');
+            const total = 4;
+            let current = 0;
+            function goTo(i) {
+                if (i < 0) i = total - 1;
+                if (i >= total) i = 0;
+                current = i;
+                track.style.transform = `translateY(-${current * 100}%)`;
+                nav.forEach((d, idx) => d.classList.toggle('ativo', idx === current));
+            }
+            nav.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index))));
+            setInterval(() => goTo(current + 1), 3000);
+        })();
+
+        // DEPOIMENTOS
+        (function() {
+            const depoimentos = [
+                { texto: '"Comprei para decorar minha sala e todos acham que é porcelana de museu. A montagem foi uma terapia!"', autor: 'Maria Fernanda', local: 'São Paulo · Compra verificada' },
+                { texto: '"Presenteei minha mãe e ela chorou de emoção. Peça linda, encaixes perfeitos e chegou rápido."', autor: 'João Pedro', local: 'Rio de Janeiro · Compra verificada' },
+                { texto: '"Já comprei 3 vasos diferentes. Viram obras de arte na estante. Super recomendo!"', autor: 'Ana Clara', local: 'Belo Horizonte · Compra verificada' },
+                { texto: '"Qualidade impressionante. Já montei com meu filho, foi um momento especial. Nota 1000!"', autor: 'Carlos Eduardo', local: 'Curitiba · Compra verificada' }
+            ];
+            const textoEl = document.getElementById('depoimentoTexto');
+            const autorEl = document.getElementById('depoimentoAutor');
+            const localEl = document.getElementById('depoimentoLocal');
+            const nav = document.querySelectorAll('#depoimentosNav span');
+            let current = 0;
+            let interval;
+
+            function mostrar(i) {
+                current = i;
+                const d = depoimentos[i];
+                textoEl.textContent = d.texto;
+                autorEl.textContent = d.autor;
+                localEl.textContent = d.local;
+                nav.forEach((dot, idx) => dot.classList.toggle('ativo', idx === i));
+            }
+
+            nav.forEach(dot => dot.addEventListener('click', () => {
+                clearInterval(interval);
+                mostrar(parseInt(dot.dataset.index));
+                interval = setInterval(proximo, 4000);
+            }));
+
+            function proximo() {
+                mostrar((current + 1) % depoimentos.length);
+            }
+            interval = setInterval(proximo, 4000);
+        })();
+
+        // WHATSAPP: mostrar balão no hover/touch
+        const wppFloat = document.querySelector('.wpp-float');
+        const wppBalao = document.querySelector('.wpp-balao');
+        wppFloat.addEventListener('touchstart', () => { wppBalao.style.display = 'block'; });
+        wppFloat.addEventListener('touchend', () => { setTimeout(() => { wppBalao.style.display = 'none'; }, 2000); });
+        wppFloat.addEventListener('mouseenter', () => { wppBalao.style.display = 'block'; });
+        wppFloat.addEventListener('mouseleave', () => { wppBalao.style.display = 'none'; });
+    </script>
 </body>
 </html>
