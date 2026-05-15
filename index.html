@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <meta name="theme-color" content="#05080f">
 <title>Vaso 3D Quebra-Cabeça · Porcelana Azul e Branca | flor3d.shop</title>
 
@@ -45,7 +45,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* ── NOISE TEXTURE ── */
+/* noise texture */
 body::before{
   content:'';
   position:fixed;inset:0;
@@ -53,7 +53,7 @@ body::before{
   pointer-events:none;z-index:0;opacity:.5;
 }
 
-/* ── HEADER / LOGO ── */
+/* header com novo logo SVG */
 .header{
   position:sticky;top:0;z-index:100;
   display:flex;align-items:center;justify-content:center;
@@ -62,18 +62,40 @@ body::before{
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
-.logo-link{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
-.logo-link img{height:40px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(201,168,76,.35));}
-.logo-text{font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;color:var(--ink);letter-spacing:2px;line-height:1.1;}
-.logo-text small{display:block;font-family:'DM Sans',sans-serif;font-size:.55rem;font-weight:400;letter-spacing:3px;color:var(--text-muted);}
+.logo-link{
+  display:flex;align-items:center;gap:.7rem;
+  text-decoration:none;
+  transition:transform .2s ease;
+}
+.logo-link:active{transform:scale(.98);}
+.logo-svg-icon{
+  width:42px;height:42px;
+  filter:drop-shadow(0 2px 6px rgba(0,0,0,.1));
+}
+.logo-text{
+  font-family:'Cinzel',serif;
+  font-size:.9rem;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:2px;
+  line-height:1.1;
+}
+.logo-text small{
+  display:block;
+  font-family:'DM Sans',sans-serif;
+  font-size:.55rem;
+  font-weight:400;
+  letter-spacing:3px;
+  color:var(--text-muted);
+}
 
-/* ── HERO ── */
+/* hero */
 .hero{
   position:relative;
   background:var(--ink);
   color:var(--white);
   overflow:hidden;
-  padding:2.5rem 1.4rem 0;
+  padding:2rem 1.4rem 0;
   text-align:center;
 }
 .hero-bg{
@@ -114,18 +136,47 @@ body::before{
 }
 .stars{
   color:var(--gold2);font-size:.85rem;letter-spacing:3px;
-  position:relative;z-index:2;margin-bottom:1.5rem;
+  position:relative;z-index:2;margin-bottom:1rem;
 }
 .stars span{font-size:.6rem;color:rgba(250,250,250,.4);}
 
-/* ── CARROSSEL ── */
+/* destaque ribbon */
+.destaque-ribbon{
+  position:absolute;
+  top:10px;
+  left:10px;
+  z-index:20;
+  background:linear-gradient(135deg,var(--gold),#b8860b);
+  color:var(--ink);
+  font-weight:800;
+  font-size:.7rem;
+  padding:.3rem .9rem .3rem 1rem;
+  border-radius:40px;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  backdrop-filter:blur(4px);
+  font-family:'DM Sans',sans-serif;
+  letter-spacing:1px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.destaque-ribbon:before{
+  content:"⭐";
+  font-size:.8rem;
+}
+
+/* carrossel com cursor de produto clicável */
 .carousel-wrap{
   position:relative;z-index:2;
   margin:0 -1.4rem;
   aspect-ratio:1/1;
   overflow:hidden;
   background:#000;
+  border-radius:1.8rem 1.8rem 0 0;
+  cursor:pointer;
+  transition:opacity .2s;
 }
+.carousel-wrap:active{opacity:.92;}
 .carousel-track{
   display:flex;height:100%;
   transition:transform .5s cubic-bezier(.25,.1,.25,1);
@@ -141,15 +192,15 @@ body::before{
   border:1px solid rgba(201,168,76,.4);color:var(--gold2);
   width:36px;height:36px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-size:16px;cursor:pointer;z-index:5;
+  font-size:16px;cursor:pointer;z-index:15;
   transition:.25s;outline:none;
 }
+.carousel-prev:active,.carousel-next:active{background:rgba(37,99,168,.8);}
 .carousel-prev{left:10px}
 .carousel-next{right:10px}
-.carousel-prev:active,.carousel-next:active{background:rgba(37,99,168,.5);}
 .carousel-dots{
   position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
-  display:flex;gap:8px;z-index:5;
+  display:flex;gap:8px;z-index:15;
 }
 .carousel-dots span{
   width:6px;height:6px;border-radius:50%;
@@ -161,7 +212,7 @@ body::before{
   transform:scale(1.4);
 }
 
-/* ── URGENCY BAR ── */
+/* urgency */
 .urgency{
   background:var(--ink);
   padding:1rem 1.4rem;
@@ -190,18 +241,19 @@ body::before{
   text-decoration:none;letter-spacing:.5px;
   box-shadow:0 8px 28px rgba(201,168,76,.45);
   transition:.25s;white-space:nowrap;
+  border:none;
 }
 .btn-cta:active{transform:scale(.96);}
 .btn-cta.dark{background:var(--ink);color:var(--gold2);border:1.5px solid var(--gold);}
 
-/* ── MAIN CONTENT ── */
+/* main */
 .main{
   padding:1.6rem 1.2rem;
   display:flex;flex-direction:column;gap:1.4rem;
   max-width:520px;margin:0 auto;
 }
 
-/* ── MEDIA ROW ── */
+/* media row */
 .media-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;height:180px;}
 .media-video{
   border-radius:var(--r);overflow:hidden;
@@ -212,7 +264,10 @@ body::before{
   border-radius:var(--r);overflow:hidden;
   border:2px solid var(--border);background:var(--ink);
   position:relative;
+  cursor:pointer;
+  transition:transform .1s ease;
 }
+.media-gallery:active{transform:scale(.98);}
 .gallery-track{
   display:flex;flex-direction:column;height:100%;
   transition:transform .4s ease;
@@ -220,7 +275,7 @@ body::before{
 .gallery-track img{width:100%;height:100%;object-fit:cover;flex-shrink:0;}
 .gallery-dots{
   position:absolute;right:8px;top:50%;transform:translateY(-50%);
-  display:flex;flex-direction:column;gap:5px;z-index:3;
+  display:flex;flex-direction:column;gap:5px;z-index:12;
 }
 .gallery-dots span{
   width:6px;height:6px;border-radius:50%;
@@ -228,7 +283,7 @@ body::before{
 }
 .gallery-dots span.on{background:var(--gold);box-shadow:0 0 8px var(--gold);}
 
-/* ── ASSEMBLY STEPS ── */
+/* assembly steps */
 .steps-card{
   background:#fff;
   border-radius:var(--r);
@@ -257,7 +312,7 @@ body::before{
 .step p{font-size:.65rem;font-weight:600;color:var(--text-muted);letter-spacing:.5px;}
 .step-arrow{color:var(--gold);font-size:1.2rem;align-self:center;margin-top:-8px;}
 
-/* ── PRICE CARD ── */
+/* price card */
 .price-card{
   background:var(--ink);
   border-radius:var(--r);
@@ -290,7 +345,7 @@ body::before{
 }
 .price-footer span{display:flex;align-items:center;gap:.25rem;}
 
-/* ── FEATURES ── */
+/* features */
 .features{
   background:#fff;
   border-radius:var(--r);
@@ -307,7 +362,6 @@ body::before{
   border:1px solid rgba(5,8,15,.05);
   transition:.2s;
 }
-.feature:active{background:var(--blue-pale);}
 .feature-icon{
   width:36px;height:36px;flex-shrink:0;
   background:var(--ink);border-radius:.6rem;
@@ -319,7 +373,23 @@ body::before{
 }
 .feature-text span{font-size:.65rem;color:var(--text-muted);}
 
-/* ── REVIEWS ── */
+/* trust */
+.trust{
+  display:grid;grid-template-columns:1fr 1fr;gap:.7rem;
+}
+.trust-item{
+  background:#fff;
+  border-radius:var(--r);
+  padding:.9rem .7rem;
+  text-align:center;
+  border:1px solid rgba(5,8,15,.06);
+  box-shadow:0 2px 10px rgba(5,8,15,.05);
+}
+.trust-item .t-icon{font-size:1.6rem;margin-bottom:.3rem;}
+.trust-item strong{display:block;font-size:.7rem;color:var(--ink);}
+.trust-item span{font-size:.6rem;color:var(--text-muted);}
+
+/* reviews */
 .reviews{
   background:var(--ink);
   border-radius:var(--r);
@@ -353,23 +423,7 @@ body::before{
 }
 .reviews-nav span.on{background:var(--gold);box-shadow:0 0 8px var(--gold);}
 
-/* ── TRUST BADGES ── */
-.trust{
-  display:grid;grid-template-columns:1fr 1fr;gap:.7rem;
-}
-.trust-item{
-  background:#fff;
-  border-radius:var(--r);
-  padding:.9rem .7rem;
-  text-align:center;
-  border:1px solid rgba(5,8,15,.06);
-  box-shadow:0 2px 10px rgba(5,8,15,.05);
-}
-.trust-item .t-icon{font-size:1.6rem;margin-bottom:.3rem;}
-.trust-item strong{display:block;font-size:.7rem;color:var(--ink);}
-.trust-item span{font-size:.6rem;color:var(--text-muted);}
-
-/* ── FINAL CTA ── */
+/* final cta */
 .final-cta{
   background:linear-gradient(135deg,var(--blue) 0%,#1a3a5c 100%);
   border-radius:var(--r);
@@ -383,7 +437,7 @@ body::before{
 }
 .final-cta p{font-size:.75rem;color:rgba(255,255,255,.6);margin-bottom:1.1rem;}
 
-/* ── FOOTER ── */
+/* footer */
 footer{
   text-align:center;padding:1.5rem 1.2rem;
   font-size:.6rem;color:var(--text-muted);
@@ -391,7 +445,7 @@ footer{
 }
 footer a{color:var(--blue);text-decoration:none;}
 
-/* ── WHATSAPP FLOAT ── */
+/* whatsapp */
 .wpp{
   position:fixed;bottom:22px;right:16px;
   z-index:9999;
@@ -428,48 +482,63 @@ footer a{color:var(--blue);text-decoration:none;}
   100%{transform:scale(1.5);opacity:0;}
 }
 
-/* ── ANIMATIONS ── */
+/* animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 .fade-up{animation:fadeUp .7s ease both;}
 .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}
 
-/* ── RESPONSIVE ── */
 @media(max-width:380px){
   .media-row{grid-template-columns:1fr;height:auto;}
   .media-video,.media-gallery{height:160px;}
   .price-main{font-size:2.5rem;}
   .btn-cta{font-size:.85rem;padding:.7rem 1.4rem;}
+  .destaque-ribbon{font-size:.6rem;top:6px;left:6px;}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- HEADER COM NOVO LOGO SVG -->
 <header class="header">
   <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="logo-link"
      onclick="gtag('event','click_logo',{'event_category':'navigation'});">
-    <img src="https://im.ge/i/QMaZikf" alt="flor3d logo">
+    <svg class="logo-svg-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="18" fill="url(#gradVase)" stroke="#c9a84c" stroke-width="1.2"/>
+      <path d="M14 22 L16 14 L24 14 L26 22 L24 28 L16 28 L14 22Z" fill="white" stroke="#2563a8" stroke-width="0.8"/>
+      <path d="M20 10 L20 14" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="20" cy="18" r="1.5" fill="#2563a8"/>
+      <circle cx="17" cy="21" r="1" fill="#7ec8e3"/>
+      <circle cx="23" cy="21" r="1" fill="#7ec8e3"/>
+      <defs>
+        <linearGradient id="gradVase" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#05080f"/>
+          <stop offset="1" stop-color="#1e2a3a"/>
+        </linearGradient>
+      </defs>
+    </svg>
     <div class="logo-text">flor3d<small>.shop</small></div>
   </a>
 </header>
 
-<!-- HERO -->
+<!-- HERO com destaque visual -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-badge fade-up">✦ Coleção Exclusiva ✦</div>
   <h1 class="fade-up d1">Vaso <em>3D</em><br>Quebra-Cabeça</h1>
   <p class="hero-sub fade-up d2">Arte milenar chinesa — agora em suas mãos</p>
   <div class="stars fade-up d3">★★★★★ <span>4.9 · 86 avaliações</span></div>
-  <!-- CAROUSEL -->
-  <div class="carousel-wrap fade-up d4">
+
+  <!-- CARROSSEL COM RIBBON DESTAQUE E CLICÁVEL -->
+  <div class="carousel-wrap fade-up d4" id="productCarousel">
+    <div class="destaque-ribbon"> Destaque da Semana</div>
     <div class="carousel-track" id="carTrack">
-      <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso montado">
-      <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe">
-      <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças">
-      <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Decorado">
+      <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso montado vista frontal">
+      <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe da porcelana">
+      <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças do quebra-cabeça 3D">
+      <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Vaso decorado na estante">
     </div>
-    <button class="carousel-prev" id="carPrev">❮</button>
-    <button class="carousel-next" id="carNext">❯</button>
+    <button class="carousel-prev" id="carPrev" aria-label="Anterior">❮</button>
+    <button class="carousel-next" id="carNext" aria-label="Próximo">❯</button>
     <div class="carousel-dots" id="carDots">
       <span class="on" data-i="0"></span>
       <span data-i="1"></span><span data-i="2"></span><span data-i="3"></span>
@@ -493,10 +562,9 @@ footer a{color:var(--blue);text-decoration:none;}
   </a>
 </div>
 
-<!-- MAIN -->
 <main class="main">
 
-  <!-- MEDIA ROW -->
+  <!-- MEDIA ROW: vídeo e galeria (galeria clicável) -->
   <div class="media-row">
     <div class="media-video">
       <video controls playsinline preload="metadata"
@@ -504,12 +572,12 @@ footer a{color:var(--blue);text-decoration:none;}
         <source src="flor3d.mp4" type="video/mp4">
       </video>
     </div>
-    <div class="media-gallery">
+    <div class="media-gallery" id="clickableGallery">
       <div class="gallery-track" id="galTrack">
-        <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="">
-        <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="">
-        <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="">
-        <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="">
+        <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso montado">
+        <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe">
+        <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças">
+        <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Decoração">
       </div>
       <div class="gallery-dots" id="galDots">
         <span class="on" data-i="0"></span>
@@ -522,23 +590,11 @@ footer a{color:var(--blue);text-decoration:none;}
   <div class="steps-card">
     <p class="steps-title">Como funciona 🧩</p>
     <div class="steps-row">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-emoji">📦</div>
-        <p>Receba</p>
-      </div>
+      <div class="step"><div class="step-num">1</div><div class="step-emoji">📦</div><p>Receba</p></div>
       <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-emoji">🧩</div>
-        <p>Monte</p>
-      </div>
+      <div class="step"><div class="step-num">2</div><div class="step-emoji">🧩</div><p>Monte</p></div>
       <div class="step-arrow">→</div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-emoji">🏺</div>
-        <p>Decore</p>
-      </div>
+      <div class="step"><div class="step-num">3</div><div class="step-emoji">🏺</div><p>Decore</p></div>
     </div>
   </div>
 
@@ -546,74 +602,31 @@ footer a{color:var(--blue);text-decoration:none;}
   <div class="price-card">
     <div class="price-old">De R$ 169,90</div>
     <div class="price-main"><sup>R$</sup> 99<sup>,99</sup></div>
-    <div class="price-badge">💎 PIX · 41% OFF</div>
-    <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-cta"
-       style="width:100%;justify-content:center;"
+    <div class="price-badge">💎 PIX · 41% OFF + FRETE GRÁTIS</div>
+    <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-cta" style="width:100%;justify-content:center;"
        onclick="gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
       🛒 Comprar na Shopee
     </a>
     <div class="price-footer">
-      <span>🔐 Compra segura</span>
-      <span>🚚 Frete grátis</span>
-      <span>🔄 7 dias garantia</span>
-      <span>🏆 +2.000 vendas</span>
+      <span>🔐 Compra segura</span><span>🚚 Frete grátis</span>
+      <span>🔄 7 dias garantia</span><span>🏆 +2.000 vendas</span>
     </div>
   </div>
 
   <!-- FEATURES -->
   <div class="features">
-    <div class="feature">
-      <div class="feature-icon">🏺</div>
-      <div class="feature-text">
-        <strong>Acabamento premium</strong>
-        <span>Brilho de porcelana real — ninguém descobre</span>
-      </div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🧩</div>
-      <div class="feature-text">
-        <strong>Encaixes precisos</strong>
-        <span>Sem necessidade de cola — encaixa perfeito</span>
-      </div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🎨</div>
-      <div class="feature-text">
-        <strong>Design exclusivo</strong>
-        <span>Inspirado na arte da dinastia Ming</span>
-      </div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🎁</div>
-      <div class="feature-text">
-        <strong>Embalagem presenteável</strong>
-        <span>Ideal para ocasiões especiais e presentes</span>
-      </div>
-    </div>
+    <div class="feature"><div class="feature-icon">🏺</div><div class="feature-text"><strong>Acabamento premium</strong><span>Brilho de porcelana real — ninguém descobre</span></div></div>
+    <div class="feature"><div class="feature-icon">🧩</div><div class="feature-text"><strong>Encaixes precisos</strong><span>Sem necessidade de cola — encaixa perfeito</span></div></div>
+    <div class="feature"><div class="feature-icon">🎨</div><div class="feature-text"><strong>Design exclusivo</strong><span>Inspirado na arte da dinastia Ming</span></div></div>
+    <div class="feature"><div class="feature-icon">🎁</div><div class="feature-text"><strong>Embalagem presenteável</strong><span>Ideal para ocasiões especiais e presentes</span></div></div>
   </div>
 
   <!-- TRUST -->
   <div class="trust">
-    <div class="trust-item">
-      <div class="t-icon">🔒</div>
-      <strong>Compra Segura</strong>
-      <span>Proteção Shopee</span>
-    </div>
-    <div class="trust-item">
-      <div class="t-icon">🚚</div>
-      <strong>Frete Grátis</strong>
-      <span>Todo o Brasil</span>
-    </div>
-    <div class="trust-item">
-      <div class="t-icon">🔄</div>
-      <strong>7 Dias</strong>
-      <span>Devolução gratuita</span>
-    </div>
-    <div class="trust-item">
-      <div class="t-icon">🏆</div>
-      <strong>+2.000</strong>
-      <span>Clientes felizes</span>
-    </div>
+    <div class="trust-item"><div class="t-icon">🔒</div><strong>Compra Segura</strong><span>Proteção Shopee</span></div>
+    <div class="trust-item"><div class="t-icon">🚚</div><strong>Frete Grátis</strong><span>Todo o Brasil</span></div>
+    <div class="trust-item"><div class="t-icon">🔄</div><strong>7 Dias</strong><span>Devolução gratuita</span></div>
+    <div class="trust-item"><div class="t-icon">🏆</div><strong>+2.000</strong><span>Clientes felizes</span></div>
   </div>
 
   <!-- REVIEWS -->
@@ -635,20 +648,18 @@ footer a{color:var(--blue);text-decoration:none;}
   <div class="final-cta">
     <h2>Sua sala merece isso 🏺</h2>
     <p>Parece porcelana de museu. Você mesmo monta.<br>41% OFF só hoje no PIX.</p>
-    <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-cta"
-       style="width:100%;justify-content:center;"
+    <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-cta" style="width:100%;justify-content:center;"
        onclick="gtag('event','conversion_final',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
       🛒 Quero o meu agora
     </a>
   </div>
-
 </main>
 
 <footer>
   © 2025 <a href="https://flor3d.shop">flor3d.shop</a> · Todos os direitos reservados
 </footer>
 
-<!-- WHATSAPP FLUTUANTE -->
+<!-- WHATSAPP -->
 <div class="wpp">
   <div class="wpp-bubble" id="wppBubble">Dúvidas? Chama aqui! 😊<br><small>(13) 99671-0855</small></div>
   <a href="https://wa.me/5513996710855?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Vaso+3D+Quebra-Cabe%C3%A7a."
@@ -673,7 +684,7 @@ footer a{color:var(--blue);text-decoration:none;}
   tick();setInterval(tick,1000);
 })();
 
-// CAROUSEL
+// CARROSSEL PRINCIPAL
 (function(){
   const track=document.getElementById('carTrack');
   const dots=[...document.querySelectorAll('#carDots span')];
@@ -689,8 +700,9 @@ footer a{color:var(--blue);text-decoration:none;}
   document.getElementById('carNext').onclick=()=>{clearInterval(iv);go(cur+1);start();};
   dots.forEach(d=>d.onclick=()=>{clearInterval(iv);go(+d.dataset.i);start();});
   let tx=0;
-  track.parentElement.addEventListener('touchstart',e=>tx=e.changedTouches[0].screenX,{passive:true});
-  track.parentElement.addEventListener('touchend',e=>{
+  const carWrap=document.querySelector('.carousel-wrap');
+  carWrap.addEventListener('touchstart',e=>tx=e.changedTouches[0].screenX,{passive:true});
+  carWrap.addEventListener('touchend',e=>{
     const dx=tx-e.changedTouches[0].screenX;
     if(Math.abs(dx)>30){clearInterval(iv);dx>0?go(cur+1):go(cur-1);start();}
   },{passive:true});
@@ -698,7 +710,7 @@ footer a{color:var(--blue);text-decoration:none;}
   start();
 })();
 
-// GALLERY
+// GALERIA VERTICAL
 (function(){
   const track=document.getElementById('galTrack');
   const dots=[...document.querySelectorAll('#galDots span')];
@@ -712,7 +724,7 @@ footer a{color:var(--blue);text-decoration:none;}
   setInterval(()=>go(cur+1),3000);
 })();
 
-// REVIEWS
+// REVIEWS ROTATE
 (function(){
   const reviews=[
     {t:'"Comprei para decorar minha sala e todos acham que é porcelana de museu. A montagem foi uma terapia!"',a:'Maria Fernanda',l:'São Paulo · Compra verificada'},
@@ -740,12 +752,28 @@ footer a{color:var(--blue);text-decoration:none;}
   const btn=document.getElementById('wppBtn');
   const bubble=document.getElementById('wppBubble');
   let t;
-  // mostra automaticamente após 3s
   setTimeout(()=>{bubble.style.display='block';t=setTimeout(()=>bubble.style.display='none',4000);},3000);
   btn.addEventListener('mouseenter',()=>{clearTimeout(t);bubble.style.display='block';});
   btn.addEventListener('mouseleave',()=>{t=setTimeout(()=>bubble.style.display='none',1500);});
   btn.addEventListener('touchstart',()=>{clearTimeout(t);bubble.style.display='block';t=setTimeout(()=>bubble.style.display='none',2500);},{passive:true});
 })();
+
+// PRODUTO CLICÁVEL: CARROSSEL PRINCIPAL + GALERIA (exceto controles)
+const PRODUCT_URL = 'https://s.shopee.com.br/2LUrPUGq7D';
+function handleProductClick(e) {
+  // Evita redirecionamento se clicou em botões, dots, ou dentro de vídeo
+  if(e.target.closest('.carousel-prev') || e.target.closest('.carousel-next') || e.target.closest('.carousel-dots span') ||
+     e.target.closest('.gallery-dots span') || e.target.closest('.media-video') || e.target.closest('video')) {
+    e.stopPropagation();
+    return;
+  }
+  window.open(PRODUCT_URL, '_blank');
+  gtag('event', 'click_product_image', {'event_category': 'product_engagement'});
+}
+const carouselWrap = document.querySelector('.carousel-wrap');
+if(carouselWrap) carouselWrap.addEventListener('click', handleProductClick);
+const galleryBlock = document.getElementById('clickableGallery');
+if(galleryBlock) galleryBlock.addEventListener('click', handleProductClick);
 </script>
 </body>
 </html>
