@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#05080f">
 <title>Vaso 3D Quebra-Cabeça · Porcelana Azul e Branca | flor3d.shop</title>
 
+<!-- Google Analytics + Google Ads -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NBC9FVLLNB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -45,15 +46,15 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* noise texture */
+/* noise texture (leve) */
 body::before{
   content:'';
   position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.4;
 }
 
-/* header com novo logo SVG */
+/* header */
 .header{
   position:sticky;top:0;z-index:100;
   display:flex;align-items:center;justify-content:center;
@@ -65,7 +66,7 @@ body::before{
 .logo-link{
   display:flex;align-items:center;gap:.7rem;
   text-decoration:none;
-  transition:transform .2s ease;
+  transition:transform .2s;
 }
 .logo-link:active{transform:scale(.98);}
 .logo-svg-icon{
@@ -89,13 +90,13 @@ body::before{
   color:var(--text-muted);
 }
 
-/* hero */
+/* hero novo: preço e CTA em destaque */
 .hero{
   position:relative;
   background:var(--ink);
   color:var(--white);
   overflow:hidden;
-  padding:2rem 1.4rem 0;
+  padding:1.5rem 1rem 0;
   text-align:center;
 }
 .hero-bg{
@@ -105,97 +106,99 @@ body::before{
 }
 .hero-badge{
   display:inline-block;
-  border:1px solid rgba(201,168,76,.5);
-  color:var(--gold2);
-  font-size:.6rem;font-weight:700;
-  letter-spacing:3px;text-transform:uppercase;
-  padding:.3rem 1.2rem;border-radius:50px;
-  margin-bottom:1rem;
-  background:rgba(201,168,76,.08);
-  position:relative;z-index:2;
-}
-.hero h1{
-  font-family:'DM Serif Display',serif;
-  font-size:clamp(2rem,8vw,3.2rem);
-  line-height:1.05;
-  color:var(--white);
-  position:relative;z-index:2;
-  margin-bottom:.5rem;
-}
-.hero h1 em{
-  font-style:italic;
-  background:linear-gradient(130deg,var(--gold),var(--blue-light));
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero-sub{
-  font-size:.82rem;font-weight:300;
-  color:rgba(250,250,250,.6);
-  position:relative;z-index:2;
+  background:#c9a84c;
+  color:#05080f;
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:2px;
+  padding:.3rem 1rem;
+  border-radius:50px;
   margin-bottom:.8rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  position:relative;
+  z-index:2;
+}
+.price-highlight{
+  font-size:clamp(2rem,7vw,2.6rem);
+  font-weight:800;
+  color:var(--gold2);
+  line-height:1;
+  margin:.5rem 0 .2rem;
+  position:relative;
+  z-index:2;
+}
+.price-highlight small{
+  font-size:1rem;
+  text-decoration:line-through;
+  color:rgba(255,255,255,.5);
+  font-weight:400;
+}
+.btn-hero{
+  display:inline-block;
+  background:linear-gradient(115deg,#e8c96a,#c9a84c);
+  color:#05080f;
+  font-weight:800;
+  font-size:1.2rem;
+  padding:14px 28px;
+  border-radius:60px;
+  text-decoration:none;
+  margin-top:.6rem;
+  margin-bottom:.6rem;
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+  transition:.2s;
+}
+.btn-hero:active{transform:scale(.96);}
+.hero-sub{
+  font-size:.8rem;
+  color:rgba(255,255,255,.6);
+  margin:.5rem 0;
+  position:relative;
+  z-index:2;
 }
 .stars{
-  color:var(--gold2);font-size:.85rem;letter-spacing:3px;
-  position:relative;z-index:2;margin-bottom:1rem;
-}
-.stars span{font-size:.6rem;color:rgba(250,250,250,.4);}
-
-/* destaque ribbon */
-.destaque-ribbon{
-  position:absolute;
-  top:10px;
-  left:10px;
-  z-index:20;
-  background:linear-gradient(135deg,var(--gold),#b8860b);
-  color:var(--ink);
-  font-weight:800;
-  font-size:.7rem;
-  padding:.3rem .9rem .3rem 1rem;
-  border-radius:40px;
-  box-shadow:0 4px 12px rgba(0,0,0,.3);
-  backdrop-filter:blur(4px);
-  font-family:'DM Sans',sans-serif;
-  letter-spacing:1px;
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-.destaque-ribbon:before{
-  content:"⭐";
+  color:var(--gold2);
   font-size:.8rem;
+  letter-spacing:2px;
+  margin-bottom:1rem;
+  position:relative;
+  z-index:2;
 }
-
-/* carrossel com cursor de produto clicável */
+/* carrossel */
 .carousel-wrap{
-  position:relative;z-index:2;
-  margin:0 -1.4rem;
+  position:relative;
+  z-index:2;
+  margin:0 -1rem;
   aspect-ratio:1/1;
   overflow:hidden;
   background:#000;
-  border-radius:1.8rem 1.8rem 0 0;
+  border-radius:1.5rem 1.5rem 0 0;
   cursor:pointer;
-  transition:opacity .2s;
 }
-.carousel-wrap:active{opacity:.92;}
 .carousel-track{
-  display:flex;height:100%;
+  display:flex;
+  height:100%;
   transition:transform .5s cubic-bezier(.25,.1,.25,1);
-  will-change:transform;
 }
 .carousel-track img{
-  width:100%;height:100%;
-  object-fit:cover;flex-shrink:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  flex-shrink:0;
 }
 .carousel-prev,.carousel-next{
   position:absolute;top:50%;transform:translateY(-50%);
-  background:rgba(5,8,15,.6);backdrop-filter:blur(8px);
-  border:1px solid rgba(201,168,76,.4);color:var(--gold2);
-  width:36px;height:36px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;cursor:pointer;z-index:15;
-  transition:.25s;outline:none;
+  background:rgba(5,8,15,.7);
+  border:1px solid rgba(201,168,76,.6);
+  color:var(--gold2);
+  width:40px;height:40px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  cursor:pointer;
+  z-index:15;
 }
-.carousel-prev:active,.carousel-next:active{background:rgba(37,99,168,.8);}
 .carousel-prev{left:10px}
 .carousel-next{right:10px}
 .carousel-dots{
@@ -203,471 +206,265 @@ body::before{
   display:flex;gap:8px;z-index:15;
 }
 .carousel-dots span{
-  width:6px;height:6px;border-radius:50%;
-  background:rgba(255,255,255,.3);cursor:pointer;transition:.3s;
+  width:8px;height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,.4);
+  cursor:pointer;
 }
 .carousel-dots span.on{
-  background:var(--blue-light);
-  box-shadow:0 0 10px var(--blue-light);
-  transform:scale(1.4);
+  background:var(--gold);
+  box-shadow:0 0 8px var(--gold);
+  transform:scale(1.2);
 }
-
-/* urgency */
 .urgency{
   background:var(--ink);
-  padding:1rem 1.4rem;
-  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  padding:1rem 1rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.5rem;
 }
 .timer-label{
-  font-size:.6rem;font-weight:700;letter-spacing:2px;
-  color:var(--gold);text-transform:uppercase;
+  font-size:.65rem;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--gold);
 }
-.timer{display:flex;gap:.5rem;align-items:center;}
+.timer{display:flex;gap:.5rem;}
 .t-box{
   background:rgba(255,255,255,.05);
-  border:1px solid rgba(201,168,76,.3);
-  border-radius:.5rem;padding:.3rem .6rem;
-  text-align:center;min-width:44px;
+  border:1px solid rgba(201,168,76,.4);
+  border-radius:.5rem;
+  padding:.2rem .5rem;
+  text-align:center;
+  min-width:50px;
 }
-.t-box b{display:block;font-size:1.4rem;font-weight:800;color:#fff;line-height:1;}
-.t-box small{font-size:.45rem;letter-spacing:1px;color:rgba(255,255,255,.4);}
-.t-sep{color:var(--gold);font-size:1.2rem;font-weight:700;margin-top:-4px;}
-
-.btn-cta{
-  display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  background:linear-gradient(115deg,var(--gold),var(--gold2));
-  color:var(--ink);font-weight:800;font-size:.95rem;
-  padding:.75rem 2rem;border-radius:3rem;
-  text-decoration:none;letter-spacing:.5px;
-  box-shadow:0 8px 28px rgba(201,168,76,.45);
-  transition:.25s;white-space:nowrap;
-  border:none;
-}
-.btn-cta:active{transform:scale(.96);}
-.btn-cta.dark{background:var(--ink);color:var(--gold2);border:1.5px solid var(--gold);}
+.t-box b{display:block;font-size:1.4rem;color:#fff;}
+.t-box small{font-size:.4rem;color:rgba(255,255,255,.5);}
+.t-sep{color:var(--gold);font-size:1.4rem;}
 
 /* main */
 .main{
-  padding:1.6rem 1.2rem;
-  display:flex;flex-direction:column;gap:1.4rem;
-  max-width:520px;margin:0 auto;
+  padding:1.2rem 1rem;
+  display:flex;
+  flex-direction:column;
+  gap:1.2rem;
+  max-width:560px;
+  margin:0 auto;
 }
-
-/* media row */
 .media-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;height:180px;}
 .media-video{
-  border-radius:var(--r);overflow:hidden;
-  border:2px solid rgba(37,99,168,.3);background:#000;
+  border-radius:1rem;
+  overflow:hidden;
+  background:#000;
+  border:2px solid #2563a8;
 }
-.media-video video{width:100%;height:100%;object-fit:cover;display:block;}
+.media-video video{width:100%;height:100%;object-fit:cover;}
 .media-gallery{
-  border-radius:var(--r);overflow:hidden;
-  border:2px solid var(--border);background:var(--ink);
+  border-radius:1rem;
+  overflow:hidden;
+  border:2px solid var(--border);
+  background:var(--ink);
   position:relative;
   cursor:pointer;
-  transition:transform .1s ease;
 }
-.media-gallery:active{transform:scale(.98);}
 .gallery-track{
-  display:flex;flex-direction:column;height:100%;
-  transition:transform .4s ease;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  transition:transform .4s;
 }
 .gallery-track img{width:100%;height:100%;object-fit:cover;flex-shrink:0;}
 .gallery-dots{
-  position:absolute;right:8px;top:50%;transform:translateY(-50%);
-  display:flex;flex-direction:column;gap:5px;z-index:12;
+  position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
 }
 .gallery-dots span{
-  width:6px;height:6px;border-radius:50%;
-  background:rgba(255,255,255,.3);cursor:pointer;transition:.3s;
+  width:7px;height:7px;
+  border-radius:50%;
+  background:rgba(255,255,255,.4);
+  cursor:pointer;
 }
-.gallery-dots span.on{background:var(--gold);box-shadow:0 0 8px var(--gold);}
-
-/* assembly steps */
-.steps-card{
+.gallery-dots span.on{background:var(--gold);box-shadow:0 0 5px gold;}
+.steps-card,.features,.price-card,.reviews,.final-cta,.trust{
   background:#fff;
-  border-radius:var(--r);
-  border:1px solid rgba(5,8,15,.06);
-  padding:1.2rem;
-  box-shadow:0 4px 20px rgba(5,8,15,.06);
+  border-radius:1.2rem;
+  padding:1rem;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);
 }
-.steps-title{
-  font-family:'DM Serif Display',serif;
-  font-size:1.1rem;color:var(--ink);
-  margin-bottom:1rem;text-align:center;
-}
-.steps-row{display:flex;justify-content:space-between;gap:.4rem;}
-.step{
-  flex:1;text-align:center;
-  display:flex;flex-direction:column;align-items:center;gap:.4rem;
-}
-.step-num{
-  width:36px;height:36px;border-radius:50%;
-  background:var(--ink);color:var(--gold2);
-  font-weight:800;font-size:.9rem;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 12px rgba(5,8,15,.2);
-}
-.step-emoji{font-size:1.5rem;}
-.step p{font-size:.65rem;font-weight:600;color:var(--text-muted);letter-spacing:.5px;}
-.step-arrow{color:var(--gold);font-size:1.2rem;align-self:center;margin-top:-8px;}
-
-/* price card */
 .price-card{
   background:var(--ink);
-  border-radius:var(--r);
-  padding:1.4rem;
+  color:#fff;
   text-align:center;
-  border:1px solid rgba(201,168,76,.2);
-  box-shadow:0 20px 40px rgba(5,8,15,.25);
 }
-.price-old{
-  font-size:.75rem;text-decoration:line-through;
-  color:rgba(255,255,255,.3);margin-bottom:.2rem;
+.price-old{font-size:.8rem;text-decoration:line-through;opacity:.6;}
+.price-big{
+  font-size:2.8rem;
+  font-weight:800;
+  color:var(--gold2);
 }
-.price-main{
-  font-family:'DM Serif Display',serif;
-  font-size:3rem;color:var(--white);
-  line-height:1;margin-bottom:.5rem;
-}
-.price-main sup{font-size:1.2rem;vertical-align:super;}
-.price-badge{
-  display:inline-block;
-  background:linear-gradient(115deg,var(--gold),var(--gold2));
-  color:var(--ink);font-weight:800;font-size:.7rem;
-  padding:.3rem 1.4rem;border-radius:50px;
-  letter-spacing:.5px;margin-bottom:1rem;
-  box-shadow:0 4px 14px rgba(201,168,76,.4);
-}
-.price-footer{
-  display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem 1rem;
-  font-size:.6rem;color:rgba(255,255,255,.4);margin-top:.8rem;
-}
-.price-footer span{display:flex;align-items:center;gap:.25rem;}
-
-/* features */
-.features{
-  background:#fff;
-  border-radius:var(--r);
-  padding:1.2rem;
-  border:1px solid rgba(5,8,15,.06);
-  box-shadow:0 4px 20px rgba(5,8,15,.06);
-  display:flex;flex-direction:column;gap:.7rem;
-}
-.feature{
-  display:flex;align-items:flex-start;gap:.7rem;
-  padding:.6rem .8rem;
-  border-radius:.8rem;
-  background:rgba(5,8,15,.02);
-  border:1px solid rgba(5,8,15,.05);
-  transition:.2s;
-}
-.feature-icon{
-  width:36px;height:36px;flex-shrink:0;
-  background:var(--ink);border-radius:.6rem;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1rem;
-}
-.feature-text strong{
-  display:block;font-size:.75rem;font-weight:700;color:var(--ink);
-}
-.feature-text span{font-size:.65rem;color:var(--text-muted);}
-
-/* trust */
-.trust{
-  display:grid;grid-template-columns:1fr 1fr;gap:.7rem;
-}
-.trust-item{
-  background:#fff;
-  border-radius:var(--r);
-  padding:.9rem .7rem;
+.btn-shopee{
+  display:block;
+  background:linear-gradient(115deg,#e8c96a,#c9a84c);
+  color:#05080f;
+  font-weight:800;
+  font-size:1.1rem;
+  padding:12px;
+  border-radius:60px;
+  text-decoration:none;
   text-align:center;
-  border:1px solid rgba(5,8,15,.06);
-  box-shadow:0 2px 10px rgba(5,8,15,.05);
+  margin:1rem 0;
 }
-.trust-item .t-icon{font-size:1.6rem;margin-bottom:.3rem;}
-.trust-item strong{display:block;font-size:.7rem;color:var(--ink);}
-.trust-item span{font-size:.6rem;color:var(--text-muted);}
-
-/* reviews */
-.reviews{
-  background:var(--ink);
-  border-radius:var(--r);
-  padding:1.2rem;
-  border:1px solid rgba(201,168,76,.15);
-  box-shadow:0 20px 40px rgba(5,8,15,.2);
-}
-.reviews-label{
-  font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  color:var(--gold);text-align:center;margin-bottom:.9rem;
-}
-.review-card{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:.9rem;
-  padding:.8rem;
-}
-.review-stars{color:var(--gold2);font-size:.7rem;letter-spacing:2px;margin-bottom:.4rem;}
-.review-text{
-  font-size:.72rem;font-style:italic;
-  color:rgba(255,255,255,.7);line-height:1.5;margin-bottom:.5rem;
-}
-.review-author{font-size:.65rem;font-weight:700;color:#fff;}
-.review-location{font-size:.55rem;color:var(--blue-light);}
-.reviews-nav{
-  display:flex;justify-content:center;gap:8px;margin-top:.9rem;
-}
-.reviews-nav span{
-  width:6px;height:6px;border-radius:50%;
-  background:rgba(255,255,255,.2);cursor:pointer;transition:.3s;
-}
-.reviews-nav span.on{background:var(--gold);box-shadow:0 0 8px var(--gold);}
-
-/* final cta */
-.final-cta{
-  background:linear-gradient(135deg,var(--blue) 0%,#1a3a5c 100%);
-  border-radius:var(--r);
-  padding:1.5rem 1.2rem;
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.trust-item{background:#fff;border-radius:1rem;padding:.8rem;text-align:center;}
+.feature{display:flex;gap:.6rem;margin-bottom:.8rem;}
+.feature-icon{font-size:1.8rem;}
+.btn-flutuante{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 32px);
+  max-width:360px;
+  background:linear-gradient(135deg,#ff9800,#e65100);
+  color:white;
   text-align:center;
-  border:1px solid rgba(126,200,227,.2);
-}
-.final-cta h2{
-  font-family:'DM Serif Display',serif;
-  font-size:1.5rem;color:#fff;margin-bottom:.4rem;
-}
-.final-cta p{font-size:.75rem;color:rgba(255,255,255,.6);margin-bottom:1.1rem;}
-
-/* footer */
-footer{
-  text-align:center;padding:1.5rem 1.2rem;
-  font-size:.6rem;color:var(--text-muted);
-  border-top:1px solid rgba(5,8,15,.07);
-}
-footer a{color:var(--blue);text-decoration:none;}
-
-/* whatsapp */
-.wpp{
-  position:fixed;bottom:22px;right:16px;
+  font-weight:900;
+  font-size:1.3rem;
+  padding:16px 0;
+  border-radius:60px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5), 0 0 0 4px rgba(255,152,0,0.3);
   z-index:9999;
-  display:flex;align-items:flex-end;gap:8px;
-  flex-direction:row;
+  text-decoration:none;
+  font-family:'DM Sans',sans-serif;
+  letter-spacing:1px;
+  transition:0.2s;
+  border:none;
+  backdrop-filter:blur(2px);
 }
-.wpp-bubble{
-  background:#fff;color:var(--ink);
-  padding:.5rem .9rem;
-  border-radius:1.2rem 1.2rem .2rem 1.2rem;
-  font-size:.68rem;font-weight:600;line-height:1.3;
-  box-shadow:0 8px 24px rgba(5,8,15,.2);
-  display:none;white-space:nowrap;
-  border:1px solid rgba(5,8,15,.06);
+.btn-flutuante:active{transform:translateX(-50%) scale(0.97);}
+.wpp{
+  position:fixed;
+  bottom:22px;
+  right:16px;
+  z-index:10000;
 }
 .wpp-btn{
   width:56px;height:56px;
   background:linear-gradient(135deg,#25D366,#128C7E);
   border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 28px rgba(37,211,102,.5);
-  position:relative;text-decoration:none;
-  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 28px rgba(0,0,0,.3);
 }
-.wpp-btn svg{width:30px;height:30px;fill:#fff;}
-.wpp-btn::before,.wpp-btn::after{
-  content:'';position:absolute;inset:-6px;
-  border-radius:50%;border:2px solid rgba(37,211,102,.35);
-  animation:ring 2s ease-out infinite;
-}
-.wpp-btn::after{animation-delay:.7s;}
-@keyframes ring{
-  0%{transform:scale(.85);opacity:.8;}
-  100%{transform:scale(1.5);opacity:0;}
-}
-
-/* animations */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-.fade-up{animation:fadeUp .7s ease both;}
-.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}
-
-@media(max-width:380px){
-  .media-row{grid-template-columns:1fr;height:auto;}
-  .media-video,.media-gallery{height:160px;}
-  .price-main{font-size:2.5rem;}
-  .btn-cta{font-size:.85rem;padding:.7rem 1.4rem;}
-  .destaque-ribbon{font-size:.6rem;top:6px;left:6px;}
-}
+.wpp-btn svg{width:30px;fill:white;}
+@keyframes pulse{0%{transform:scale(1);}100%{transform:scale(1.05);}}
 </style>
 </head>
 <body>
 
-<!-- HEADER COM NOVO LOGO SVG -->
 <header class="header">
-  <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="logo-link"
-     onclick="gtag('event','click_logo',{'event_category':'navigation'});">
-    <svg class="logo-svg-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="logo-link">
+    <svg class="logo-svg-icon" viewBox="0 0 40 40" fill="none">
       <circle cx="20" cy="20" r="18" fill="url(#gradVase)" stroke="#c9a84c" stroke-width="1.2"/>
-      <path d="M14 22 L16 14 L24 14 L26 22 L24 28 L16 28 L14 22Z" fill="white" stroke="#2563a8" stroke-width="0.8"/>
-      <path d="M20 10 L20 14" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="20" cy="18" r="1.5" fill="#2563a8"/>
-      <circle cx="17" cy="21" r="1" fill="#7ec8e3"/>
-      <circle cx="23" cy="21" r="1" fill="#7ec8e3"/>
-      <defs>
-        <linearGradient id="gradVase" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#05080f"/>
-          <stop offset="1" stop-color="#1e2a3a"/>
-        </linearGradient>
-      </defs>
+      <path d="M14 22 L16 14 L24 14 L26 22 L24 28 L16 28L14 22Z" fill="white" stroke="#2563a8" stroke-width="0.8"/>
+      <path d="M20 10 L20 14" stroke="#c9a84c" stroke-width="1.5"/>
+      <defs><linearGradient id="gradVase" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#05080f"/><stop offset="1" stop-color="#1e2a3a"/></linearGradient></defs>
     </svg>
     <div class="logo-text">flor3d<small>.shop</small></div>
   </a>
 </header>
 
-<!-- HERO com destaque visual -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-badge fade-up">✦ Coleção Exclusiva ✦</div>
-  <h1 class="fade-up d1">Vaso <em>3D</em><br>Quebra-Cabeça</h1>
-  <p class="hero-sub fade-up d2">Arte milenar chinesa — agora em suas mãos</p>
-  <div class="stars fade-up d3">★★★★★ <span>4.9 · 86 avaliações</span></div>
+  <div class="hero-badge">⭐ 41% OFF + FRETE GRÁTIS ⭐</div>
+  <div class="price-highlight">R$ 99,99 <small>de R$ 169,90</small></div>
+  <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-hero" onclick="gtag('event','conversion_top_btn',{});">
+    🛒 COMPRAR NA SHOPEE
+  </a>
+  <div class="hero-sub">🔒 Compra segura · Entrega rápida · 7 dias de garantia</div>
+  <div class="stars">★★★★★ <span>4,9 (86 avaliações)</span></div>
 
-  <!-- CARROSSEL COM RIBBON DESTAQUE E CLICÁVEL -->
-  <div class="carousel-wrap fade-up d4" id="productCarousel">
-    <div class="destaque-ribbon"> Destaque da Semana</div>
+  <!-- CARROSSEL CLICÁVEL -->
+  <div class="carousel-wrap" id="productCarousel">
     <div class="carousel-track" id="carTrack">
-      <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso montado vista frontal">
-      <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe da porcelana">
-      <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças do quebra-cabeça 3D">
-      <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Vaso decorado na estante">
+      <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso montado" loading="lazy">
+      <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe" loading="lazy">
+      <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças" loading="lazy">
+      <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Decorado" loading="lazy">
     </div>
-    <button class="carousel-prev" id="carPrev" aria-label="Anterior">❮</button>
-    <button class="carousel-next" id="carNext" aria-label="Próximo">❯</button>
+    <button class="carousel-prev" id="carPrev">❮</button>
+    <button class="carousel-next" id="carNext">❯</button>
     <div class="carousel-dots" id="carDots">
-      <span class="on" data-i="0"></span>
-      <span data-i="1"></span><span data-i="2"></span><span data-i="3"></span>
+      <span class="on" data-i="0"></span><span data-i="1"></span><span data-i="2"></span><span data-i="3"></span>
     </div>
   </div>
 </section>
 
-<!-- URGENCY -->
 <div class="urgency">
-  <div class="timer-label">⏳ Oferta relâmpago termina em</div>
-  <div class="timer">
-    <div class="t-box"><b id="th">00</b><small>HORAS</small></div>
-    <div class="t-sep">:</div>
-    <div class="t-box"><b id="tm">00</b><small>MIN</small></div>
-    <div class="t-sep">:</div>
-    <div class="t-box"><b id="ts">00</b><small>SEG</small></div>
-  </div>
-  <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-cta"
-     onclick="gtag('event','conversion_top',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
-    🛒 Comprar agora com desconto
-  </a>
+  <div class="timer-label">⏳ OFERTA RELÂMPAGO</div>
+  <div class="timer"><div class="t-box"><b id="th">00</b><small>HORAS</small></div><div class="t-sep">:</div><div class="t-box"><b id="tm">00</b><small>MIN</small></div><div class="t-sep">:</div><div class="t-box"><b id="ts">00</b><small>SEG</small></div></div>
 </div>
 
 <main class="main">
-
-  <!-- MEDIA ROW: vídeo e galeria (galeria clicável) -->
   <div class="media-row">
-    <div class="media-video">
-      <video controls playsinline preload="metadata"
-        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%2305080f' width='200' height='200'/%3E%3Ccircle cx='100' cy='100' r='30' fill='none' stroke='%237ec8e3' stroke-width='1.5'/%3E%3Cpolygon points='94,90 94,110 112,100' fill='%23c9a84c'/%3E%3C/svg%3E">
-        <source src="flor3d.mp4" type="video/mp4">
-      </video>
-    </div>
+    <div class="media-video"><video controls playsinline preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%2305080f' width='200' height='200'/%3E%3Ccircle cx='100' cy='100' r='30' fill='none' stroke='%237ec8e3' stroke-width='1.5'/%3E%3Cpolygon points='94,90 94,110 112,100' fill='%23c9a84c'/%3E%3C/svg%3E"><source src="flor3d.mp4" type="video/mp4"></video></div>
     <div class="media-gallery" id="clickableGallery">
       <div class="gallery-track" id="galTrack">
-        <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso montado">
-        <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe">
-        <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças">
-        <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Decoração">
+        <img src="https://i.im.ge/QMdeEwq/D_Q_NP_2X_701493-CBT105656822745_012026-F.webp" alt="Vaso" loading="lazy">
+        <img src="https://i.im.ge/QMdeC1C/D_Q_NP_2X_642914-CBT105656733075_012026-F.webp" alt="Detalhe" loading="lazy">
+        <img src="https://i.im.ge/QMdexZp/D_Ngji7yu.webp" alt="Peças" loading="lazy">
+        <img src="https://i.im.ge/QMdeyH4/D_Q_NP_2X_923634-CBT105655872409_012026-F.webp" alt="Decoração" loading="lazy">
       </div>
-      <div class="gallery-dots" id="galDots">
-        <span class="on" data-i="0"></span>
-        <span data-i="1"></span><span data-i="2"></span><span data-i="3"></span>
-      </div>
+      <div class="gallery-dots" id="galDots"><span class="on" data-i="0"></span><span data-i="1"></span><span data-i="2"></span><span data-i="3"></span></div>
     </div>
   </div>
 
-  <!-- STEPS -->
-  <div class="steps-card">
-    <p class="steps-title">Como funciona 🧩</p>
-    <div class="steps-row">
-      <div class="step"><div class="step-num">1</div><div class="step-emoji">📦</div><p>Receba</p></div>
-      <div class="step-arrow">→</div>
-      <div class="step"><div class="step-num">2</div><div class="step-emoji">🧩</div><p>Monte</p></div>
-      <div class="step-arrow">→</div>
-      <div class="step"><div class="step-num">3</div><div class="step-emoji">🏺</div><p>Decore</p></div>
-    </div>
-  </div>
+  <div class="steps-card"><div class="steps-title">🧩 Como funciona</div><div style="display:flex;justify-content:space-between"><div><div class="step-num">1</div>📦 Receba</div><div>→</div><div><div class="step-num">2</div>🧩 Monte</div><div>→</div><div><div class="step-num">3</div>🏺 Decore</div></div></div>
 
-  <!-- PRICE -->
   <div class="price-card">
     <div class="price-old">De R$ 169,90</div>
-    <div class="price-main"><sup>R$</sup> 99<sup>,99</sup></div>
-    <div class="price-badge">💎 PIX · 41% OFF + FRETE GRÁTIS</div>
-    <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-cta" style="width:100%;justify-content:center;"
-       onclick="gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
-      🛒 Comprar na Shopee
-    </a>
-    <div class="price-footer">
-      <span>🔐 Compra segura</span><span>🚚 Frete grátis</span>
-      <span>🔄 7 dias garantia</span><span>🏆 +2.000 vendas</span>
-    </div>
+    <div class="price-big">R$ 99,99</div>
+    <div>💎 PIX · 41% OFF + FRETE GRÁTIS</div>
+    <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-shopee" onclick="gtag('event','conversion_main',{});">🛒 COMPRAR NA SHOPEE</a>
+    <div class="price-footer">🔐 Compra segura 🚚 Frete grátis 🔄 7 dias garantia 🏆 +2.000 vendas</div>
   </div>
 
-  <!-- FEATURES -->
   <div class="features">
-    <div class="feature"><div class="feature-icon">🏺</div><div class="feature-text"><strong>Acabamento premium</strong><span>Brilho de porcelana real — ninguém descobre</span></div></div>
-    <div class="feature"><div class="feature-icon">🧩</div><div class="feature-text"><strong>Encaixes precisos</strong><span>Sem necessidade de cola — encaixa perfeito</span></div></div>
-    <div class="feature"><div class="feature-icon">🎨</div><div class="feature-text"><strong>Design exclusivo</strong><span>Inspirado na arte da dinastia Ming</span></div></div>
-    <div class="feature"><div class="feature-icon">🎁</div><div class="feature-text"><strong>Embalagem presenteável</strong><span>Ideal para ocasiões especiais e presentes</span></div></div>
+    <div class="feature"><div class="feature-icon">🏺</div><div><strong>Acabamento premium</strong><br>Parece porcelana de museu</div></div>
+    <div class="feature"><div class="feature-icon">🧩</div><div><strong>Encaixes precisos</strong><br>Sem cola, encaixe perfeito</div></div>
+    <div class="feature"><div class="feature-icon">🎨</div><div><strong>Design exclusivo</strong><br>Inspirado na dinastia Ming</div></div>
+    <div class="feature"><div class="feature-icon">🎁</div><div><strong>Embalagem presenteável</strong><br>Ideal para presentear</div></div>
   </div>
 
-  <!-- TRUST -->
   <div class="trust">
     <div class="trust-item"><div class="t-icon">🔒</div><strong>Compra Segura</strong><span>Proteção Shopee</span></div>
-    <div class="trust-item"><div class="t-icon">🚚</div><strong>Frete Grátis</strong><span>Todo o Brasil</span></div>
+    <div class="trust-item"><div class="t-icon">🚚</div><strong>Frete Grátis</strong><span>Todo Brasil</span></div>
     <div class="trust-item"><div class="t-icon">🔄</div><strong>7 Dias</strong><span>Devolução gratuita</span></div>
     <div class="trust-item"><div class="t-icon">🏆</div><strong>+2.000</strong><span>Clientes felizes</span></div>
   </div>
 
-  <!-- REVIEWS -->
   <div class="reviews">
     <div class="reviews-label">❤️ Compradores encantados</div>
-    <div class="review-card" id="reviewCard">
-      <div class="review-stars">★★★★★</div>
-      <div class="review-text" id="reviewText">"Comprei para decorar minha sala e todos acham que é porcelana de museu. A montagem foi uma terapia!"</div>
-      <div class="review-author" id="reviewAuthor">Maria Fernanda</div>
-      <div class="review-location" id="reviewLocation">São Paulo · Compra verificada</div>
-    </div>
-    <div class="reviews-nav" id="reviewNav">
-      <span class="on" data-i="0"></span>
-      <span data-i="1"></span><span data-i="2"></span><span data-i="3"></span>
-    </div>
+    <div class="review-card" id="reviewCard"><div class="review-stars">★★★★★</div><div class="review-text" id="reviewText">"Comprei para decorar minha sala e todos acham que é porcelana de museu. A montagem foi uma terapia!"</div><div class="review-author" id="reviewAuthor">Maria Fernanda</div><div class="review-location" id="reviewLocation">São Paulo · Compra verificada</div></div>
+    <div class="reviews-nav" id="reviewNav"><span class="on" data-i="0"></span><span data-i="1"></span><span data-i="2"></span><span data-i="3"></span></div>
   </div>
 
-  <!-- FINAL CTA -->
-  <div class="final-cta">
-    <h2>Sua sala merece isso 🏺</h2>
-    <p>Parece porcelana de museu. Você mesmo monta.<br>41% OFF só hoje no PIX.</p>
-    <a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-cta" style="width:100%;justify-content:center;"
-       onclick="gtag('event','conversion_final',{'send_to':'AW-XXXXXXXXX/YYYYYYYYYY'});">
-      🛒 Quero o meu agora
-    </a>
-  </div>
+  <div class="final-cta"><h2>Sua sala merece isso 🏺</h2><p>41% OFF + frete grátis só hoje.</p><a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-shopee" style="background:#e8c96a;">Quero o meu agora</a></div>
 </main>
 
-<footer>
-  © 2025 <a href="https://flor3d.shop">flor3d.shop</a> · Todos os direitos reservados
-</footer>
+<footer style="text-align:center;padding:1.5rem;font-size:.65rem;">© 2025 flor3d.shop · Todos os direitos reservados</footer>
+
+<!-- BOTÃO FLUTUANTE GRANDÃO -->
+<a href="https://s.shopee.com.br/2LUrPUGq7D" target="_blank" class="btn-flutuante" onclick="gtag('event','conversion_flutuante',{});">
+  🛒 COMPRAR AGORA – R$ 99,99 🚀
+</a>
 
 <!-- WHATSAPP -->
-<div class="wpp">
-  <div class="wpp-bubble" id="wppBubble">Dúvidas? Chama aqui! 😊<br><small>(13) 99671-0855</small></div>
-  <a href="https://wa.me/5513996710855?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Vaso+3D+Quebra-Cabe%C3%A7a."
-     target="_blank" class="wpp-btn" id="wppBtn"
-     onclick="gtag('event','click_whatsapp',{'event_category':'lead'});">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-  </a>
-</div>
+<div class="wpp"><a href="https://wa.me/5513996710855?text=Ol%C3%A1!+Gostaria+de+saber+mais+sobre+o+Vaso+3D+Quebra-Cabe%C3%A7a." target="_blank" class="wpp-btn"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a></div>
 
 <script>
 // TIMER
@@ -684,7 +481,7 @@ footer a{color:var(--blue);text-decoration:none;}
   tick();setInterval(tick,1000);
 })();
 
-// CARROSSEL PRINCIPAL
+// CARROSSEL
 (function(){
   const track=document.getElementById('carTrack');
   const dots=[...document.querySelectorAll('#carDots span')];
@@ -699,18 +496,16 @@ footer a{color:var(--blue);text-decoration:none;}
   document.getElementById('carPrev').onclick=()=>{clearInterval(iv);go(cur-1);start();};
   document.getElementById('carNext').onclick=()=>{clearInterval(iv);go(cur+1);start();};
   dots.forEach(d=>d.onclick=()=>{clearInterval(iv);go(+d.dataset.i);start();});
-  let tx=0;
-  const carWrap=document.querySelector('.carousel-wrap');
-  carWrap.addEventListener('touchstart',e=>tx=e.changedTouches[0].screenX,{passive:true});
-  carWrap.addEventListener('touchend',e=>{
-    const dx=tx-e.changedTouches[0].screenX;
-    if(Math.abs(dx)>30){clearInterval(iv);dx>0?go(cur+1):go(cur-1);start();}
-  },{passive:true});
   function start(){clearInterval(iv);iv=setInterval(()=>go(cur+1),4000);}
   start();
+  // tornar carrossel clicável
+  document.getElementById('productCarousel').addEventListener('click',(e)=>{
+    if(e.target.closest('.carousel-prev')||e.target.closest('.carousel-next')||e.target.closest('.carousel-dots span')) return;
+    window.open('https://s.shopee.com.br/2LUrPUGq7D','_blank');
+  });
 })();
 
-// GALERIA VERTICAL
+// GALERIA
 (function(){
   const track=document.getElementById('galTrack');
   const dots=[...document.querySelectorAll('#galDots span')];
@@ -722,9 +517,12 @@ footer a{color:var(--blue);text-decoration:none;}
   }
   dots.forEach(d=>d.onclick=()=>go(+d.dataset.i));
   setInterval(()=>go(cur+1),3000);
+  document.getElementById('clickableGallery').addEventListener('click',()=>{
+    window.open('https://s.shopee.com.br/2LUrPUGq7D','_blank');
+  });
 })();
 
-// REVIEWS ROTATE
+// REVIEWS
 (function(){
   const reviews=[
     {t:'"Comprei para decorar minha sala e todos acham que é porcelana de museu. A montagem foi uma terapia!"',a:'Maria Fernanda',l:'São Paulo · Compra verificada'},
@@ -732,9 +530,7 @@ footer a{color:var(--blue);text-decoration:none;}
     {t:'"Já comprei 3 vasos diferentes. Viram obras de arte na estante. Super recomendo!"',a:'Ana Clara',l:'Belo Horizonte · Compra verificada'},
     {t:'"Qualidade impressionante. Já montei com meu filho, foi um momento especial. Nota 1000!"',a:'Carlos Eduardo',l:'Curitiba · Compra verificada'}
   ];
-  const txt=document.getElementById('reviewText');
-  const aut=document.getElementById('reviewAuthor');
-  const loc=document.getElementById('reviewLocation');
+  const txt=document.getElementById('reviewText'),aut=document.getElementById('reviewAuthor'),loc=document.getElementById('reviewLocation');
   const nav=[...document.querySelectorAll('#reviewNav span')];
   let cur=0,iv;
   function show(i){
@@ -747,33 +543,13 @@ footer a{color:var(--blue);text-decoration:none;}
   iv=setInterval(()=>show(cur+1),4500);
 })();
 
-// WHATSAPP BUBBLE
-(function(){
-  const btn=document.getElementById('wppBtn');
-  const bubble=document.getElementById('wppBubble');
-  let t;
-  setTimeout(()=>{bubble.style.display='block';t=setTimeout(()=>bubble.style.display='none',4000);},3000);
-  btn.addEventListener('mouseenter',()=>{clearTimeout(t);bubble.style.display='block';});
-  btn.addEventListener('mouseleave',()=>{t=setTimeout(()=>bubble.style.display='none',1500);});
-  btn.addEventListener('touchstart',()=>{clearTimeout(t);bubble.style.display='block';t=setTimeout(()=>bubble.style.display='none',2500);},{passive:true});
-})();
-
-// PRODUTO CLICÁVEL: CARROSSEL PRINCIPAL + GALERIA (exceto controles)
-const PRODUCT_URL = 'https://s.shopee.com.br/2LUrPUGq7D';
-function handleProductClick(e) {
-  // Evita redirecionamento se clicou em botões, dots, ou dentro de vídeo
-  if(e.target.closest('.carousel-prev') || e.target.closest('.carousel-next') || e.target.closest('.carousel-dots span') ||
-     e.target.closest('.gallery-dots span') || e.target.closest('.media-video') || e.target.closest('video')) {
-    e.stopPropagation();
-    return;
+// SCROLL EVENT (GA4)
+window.addEventListener('scroll', function(){
+  if(!window._scroll50triggered && window.scrollY > document.body.scrollHeight*0.5){
+    window._scroll50triggered=true;
+    gtag('event','scroll_50',{'event_category':'engagement'});
   }
-  window.open(PRODUCT_URL, '_blank');
-  gtag('event', 'click_product_image', {'event_category': 'product_engagement'});
-}
-const carouselWrap = document.querySelector('.carousel-wrap');
-if(carouselWrap) carouselWrap.addEventListener('click', handleProductClick);
-const galleryBlock = document.getElementById('clickableGallery');
-if(galleryBlock) galleryBlock.addEventListener('click', handleProductClick);
+});
 </script>
 </body>
 </html>
